@@ -2,6 +2,7 @@
 
 * {
     margin: 0;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 .top {
@@ -10,5 +11,10 @@
     color: white;
     background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
     box-shadow: 0 1px 0 0 #110038;
-    font-family: 'Chakra Petch', sans-serif;
+    font-size: 12px;
+}
+
+.top p {
+    padding-top: 4px;
+    padding-left: 3px;
 }
