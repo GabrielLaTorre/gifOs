@@ -19,13 +19,14 @@
     padding-left: 3px;
 }
 
-.tendencias {
+
+#recommended {
     margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
 
-.tendencias img {
+#recommended div {
     border: 1px solid black;
     width: 280px;
     height: 280px;
