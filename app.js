@@ -1,11 +1,4 @@
-var arr_tendencias = [];
-
-arr_tendencias.push(document.getElementsByClassName('ten-uno'));
-console.log(arr_tendencias[0]);
-
-
-
-/* var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
+ var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -28,4 +21,3 @@ function init() {
       });
   });
 }
-*/
