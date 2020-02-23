@@ -1,25 +1,35 @@
  var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
- var cards = [];
- var uno = document.getElementsByTagName('#rec-1');
- cards.push(uno);
- console.log(cards);
+ 
+ 
+
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-
-  // ############ ENDPOINT DE RANDOM ##############
-  /*fetch('https://api.giphy.com/v1/gifs/random?api_key=lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw&tag=&rating=G')
+  var cards = [];
+  var uno = document.getElementById("rec-1");
+  var dos = document.getElementById("rec-2");
+  var tres = document.getElementById("rec-3");
+  var cuatro = document.getElementById("rec-4");
+  cards.push(uno,dos,tres,cuatro);
+ 
+  cards.forEach(element => {
+    fetch('https://api.giphy.com/v1/gifs/random?api_key=lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw&tag=&rating=G')
     .then(response => response.json())
-    .then(data => {
-      console.log(data);
+    .then(content => {
+      var src = content.data.images.downsized.url;
+      let img = document.createElement('img');
+      img.setAttribute('src', src);
+      element.insertAdjacentElement("afterbegin", img);
     })
     .catch(err => console.log(err))
+  });
+  
 
   
 
   // ############ ENDPOINT DE SEARCH ##############
 
-  /*  document.getElementById("boton").addEventListener("click", ev => {
+   /* document.getElementById("boton").addEventListener("click", ev => {
     ev.preventDefault();
     var search = document.getElementById('input').value;
     fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${apiKey}`)

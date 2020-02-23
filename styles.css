@@ -31,3 +31,8 @@
     width: 280px;
     height: 280px;
 }
+
+div img {
+    width: inherit;
+    height: inherit;
+}
