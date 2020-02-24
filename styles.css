@@ -5,8 +5,13 @@
     font-family: 'Chakra Petch', sans-serif;
 }
 
+#center {
+    width: 1200px;
+    margin: 0 auto;
+}
+
 .top {
-    width: 100%;
+    width: 100vw;
     height: 23px;
     color: white;
     background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
@@ -19,13 +24,19 @@
     padding-left: 3px;
 }
 
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+ 
 
 #recommended {
-    margin: 0 auto;
     display: flex;
     justify-content: space-around;
 }
 
+/*
 #recommended div {
     border: 1px solid black;
     width: 280px;
@@ -34,5 +45,5 @@
 
 div img {
     width: inherit;
-    height: inherit;
-}
+    height: inherit; 
+}*/

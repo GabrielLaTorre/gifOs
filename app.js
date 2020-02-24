@@ -1,4 +1,4 @@
- var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
+ /* var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
  
  
 
@@ -12,6 +12,8 @@ function init() {
   var cuatro = document.getElementById("rec-4");
   cards.push(uno,dos,tres,cuatro);
  
+  // ############ ENDPOINT DE RANDOM ##############
+
   cards.forEach(element => {
     fetch('https://api.giphy.com/v1/gifs/random?api_key=lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw&tag=&rating=G')
     .then(response => response.json())
@@ -29,7 +31,7 @@ function init() {
 
   // ############ ENDPOINT DE SEARCH ##############
 
-   /* document.getElementById("boton").addEventListener("click", ev => {
+    document.getElementById("boton").addEventListener("click", ev => {
     ev.preventDefault();
     var search = document.getElementById('input').value;
     fetch(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${apiKey}`)
@@ -44,5 +46,5 @@ function init() {
       .catch(error => {
         console.log(error);
       });
-  }); */
-}
+  }); 
+}*/
