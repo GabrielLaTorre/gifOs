@@ -27,6 +27,42 @@
 .nav-top {
     display: flex;
     justify-content: space-between;
+    margin-top: 39px;
+}
+
+.nav-rigth a {
+    display: flex;
+    text-decoration: none;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 18px;
+}
+
+a span {
+    border-bottom: 1px solid #110038;
+}
+
+.muestra {
+    margin: 0;
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    background: #F7C9F3;
+    border: 1px solid #110038;
+}
+
+.btn-pink {
+    font-size: 16px;
+    width: 144px;
+    height: 36px;
+    background: #F7C9F3;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.create:hover {
+    cursor: pointer;
 }
 
  
