@@ -54,6 +54,15 @@ a span {
     height: 36px;
 }
 
+.test :hover {
+    cursor: pointer;
+}
+
+.test:hover > button, .test:hover > img  {
+    border-style: dotted;
+    border-width: 1px;
+}
+
 .test button {
     padding-right: 25px;
     width: 130px;
@@ -75,10 +84,9 @@ a span {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.create:hover {
+.btn-pink :hover {
     cursor: pointer;
 }
-
  
 
 #recommended {
