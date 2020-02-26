@@ -33,6 +33,7 @@
 
 .nav-rigth {
     width: 34%;
+    justify-content: space-around;
     display: flex;
 }
 
@@ -48,16 +49,18 @@ a span {
     border-bottom: 1px solid #110038;
 }
 
+.test {
+    display: flex;
+    height: 36px;
+}
+
 .test button {
     padding-right: 25px;
-    width: 155px;
+    width: 130px;
 }
 
 .test img {
-    position: absolute;
-    top: 63px;
-    right: 192px;
-    padding: 13px;
+    padding: 14px;
     background: #F7C9F3;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
