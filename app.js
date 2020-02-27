@@ -1,4 +1,4 @@
- /* var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
+ var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
  
  
 
@@ -21,12 +21,13 @@ function init() {
       var src = content.data.images.downsized.url;
       let img = document.createElement('img');
       img.setAttribute('src', src);
-      element.insertAdjacentElement("afterbegin", img);
+      element.insertAdjacentElement("beforeend", img);
     })
     .catch(err => console.log(err))
   });
-  
+}
 
+/* 
   
 
   // ############ ENDPOINT DE SEARCH ##############
