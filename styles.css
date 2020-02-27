@@ -3,6 +3,7 @@
 * {
     margin: 0;
     font-family: 'Chakra Petch', sans-serif;
+    box-sizing: border-box;
 }
 
 #center {
@@ -30,6 +31,56 @@
     margin-top: 39px;
 }
 
+.nav-down {
+    margin-top: 19px;
+    height: 99px;
+    background: #E6E6E6;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.nav-down p {
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    font-weight: bold;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.nav-down input {
+    margin-top: 12px;
+    margin-left: 15px;
+    padding-left: 16px;
+    width: 87%;
+    height: 48px;
+    font-size: 16px;
+    color: #B4B4B4;
+    letter-spacing: 0;
+    line-height: 22px;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+.nav-down button {
+    width: 8%;
+    height: 36px;
+    margin-left: 8px;
+    color: #B4B4B4;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+    background: #E6E6E6;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.nav-down button:hover {
+    cursor: pointer;
+}
 
 .nav-rigth {
     width: 34%;
@@ -84,7 +135,7 @@ a span {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.btn-pink :hover {
+.btn-pink:hover {
     cursor: pointer;
 }
  
@@ -93,19 +144,34 @@ a span {
     justify-content: space-around;
 }
 
+#recommended > p {
+    margin-top: 76px;
+    padding-top: 6px;
+    padding-left: 16px;
+    font-size: 14px;
+    height: 32px;
+    background: #FFFAFE;
+    border: 1px solid #E6BBE2;
+    box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+}
+
 .contain div {
-    border: 1px solid;
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
     width: 280px;
     height: 304px;
 }
 
-div img {
+#rec-1 img, #rec-2 img, #rec-3 img, #rec-4 img {
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
     width: inherit;
     height: 280px; 
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
 #rec-1 p, #rec-2 p, #rec-3 p, #rec-4 p {
+    padding-top: 5px;
+    padding-left: 5px;
     height: 24px;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
     font-weight: bold;
