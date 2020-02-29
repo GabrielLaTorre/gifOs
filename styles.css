@@ -140,7 +140,7 @@ a span {
 }
 
 
-.oculto {
+#oculto {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -151,7 +151,7 @@ a span {
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
-.oculto li {
+#oculto li {
     list-style: none;
     width: 150px;
     height: 36px;
@@ -164,6 +164,10 @@ a span {
     background: #FFF4FD;
     border: 1px solid #CCA6C9;
     box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#oculto li:hover {
+    cursor: pointer;
 }
 
 #recommended > div {

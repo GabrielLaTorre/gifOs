@@ -1,10 +1,20 @@
- var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
+const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
  
- 
-
 document.addEventListener("DOMContentLoaded", init);
 
+
 function init() {
+  var ocultar = document.getElementById('ocultar')
+  ocultar.addEventListener("click", ocult, true);
+
+  function ocult(event) {
+    var oculto = document.getElementById('oculto');
+    oculto.style.display = "none";
+    event.preventDefault();
+
+  }
+}
+/*
   var cards = [];
   var uno = document.getElementById("rec-1");
   var dos = document.getElementById("rec-2");
@@ -25,13 +35,12 @@ function init() {
     })
     .catch(err => console.log(err))
   });
-}
+*/
 
-/* 
-  
 
-  // ############ ENDPOINT DE SEARCH ##############
 
+// ############ ENDPOINT DE SEARCH ##############
+/*
     document.getElementById("boton").addEventListener("click", ev => {
     ev.preventDefault();
     var search = document.getElementById('input').value;
