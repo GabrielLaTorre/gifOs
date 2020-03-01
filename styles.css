@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: rgb(255, 246, 254);
+}
+
 #center {
     width: 88%;
     margin: 0 auto;
@@ -89,11 +93,28 @@
 }
 
 .nav-rigth a {
+    height: 32px;
+    margin-left: 8px;
+    padding-top: 5px;
+    text-align: center;
     text-decoration: none;
     font-size: 16px;
     color: #110038;
     letter-spacing: 0;
     line-height: 18px;
+}
+
+.nav-rigth a:hover {
+    border: 0.5px dotted black;
+}
+
+.nav-rigth a:active {
+    color: #8b8b8b;
+}
+
+.nav-rigth a:active span {
+    border-bottom: 1px solid #8b8b8b;
+    ;
 }
 
 a span {
@@ -172,12 +193,7 @@ a span {
     cursor: pointer;
 }
 
-#recommended > div {
-    display: flex;
-    justify-content: space-around;
-}
-
-#recommended > p {
+.tittle {
     margin-top: 76px;
     padding-top: 6px;
     padding-left: 16px;
@@ -188,22 +204,28 @@ a span {
     box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
 }
 
+.contain {
+    margin-top: 19px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 16px;
+}
+
 .contain div {
+    height: 100%;
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-    width: 280px;
-    height: 304px;
 }
 
 #rec-1 img, #rec-2 img, #rec-3 img, #rec-4 img {
     background: #E6E6E6;
-    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-    width: inherit;
-    height: 280px; 
+    margin: auto;
+    width: 99.2%;
+    height: 310px; 
 }
 
 #rec-1 p, #rec-2 p, #rec-3 p, #rec-4 p {
-    padding-top: 5px;
+    padding-top: 3px;
     padding-left: 5px;
     height: 24px;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
@@ -212,4 +234,34 @@ a span {
     color: #FFFFFF;
     letter-spacing: 0;
     background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+}
+
+.contenedor {
+    margin-top: 20px;
+    height: 950px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 16px;
+}
+
+.gif-a {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.gif-b {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.contenedor div {
+    border: 1px solid black;
+    background: rgb(116, 116, 250);
+    box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.349);
+}
+
+.trend-card img{
+    width: 100%;
+    height: 100%;
 }

@@ -3,7 +3,25 @@ const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  var ocultar = document.getElementById("ocultar");
+  var trending = document.getElementsByClassName("trend-card");
+  fetch(
+    `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`
+  )
+    .then(res => res.json())
+    .then(obj => obj.data)
+    .then(data => {
+      for (let i = 0; i < trending.length; i++) {
+        var src = data[i].images.downsized.url;
+        var elemento = trending[i];
+        var img = document.createElement("img");
+        img.setAttribute("src", src);
+        elemento.insertAdjacentElement("afterbegin", img)
+        console.log(elemento);
+    }
+    })
+    .catch(e => console.log(e));
+
+var ocultar = document.getElementById("ocultar");
   var oculto = document.getElementById("oculto");
   ocultar.addEventListener("click", mostrarOcultar);
 
@@ -14,15 +32,15 @@ function init() {
       oculto.style.display = "none";
     }
   }
-}
-/*
+
   var cards = [];
   var uno = document.getElementById("rec-1");
   var dos = document.getElementById("rec-2");
   var tres = document.getElementById("rec-3");
   var cuatro = document.getElementById("rec-4");
   cards.push(uno,dos,tres,cuatro);
- 
+
+
   // ############ ENDPOINT DE RANDOM ##############
 
   cards.forEach(element => {
@@ -36,10 +54,11 @@ function init() {
     })
     .catch(err => console.log(err))
   });
-*/
+}
 
-// ############ ENDPOINT DE SEARCH ##############
 /*
+// ############ ENDPOINT DE SEARCH ##############
+
     document.getElementById("boton").addEventListener("click", ev => {
     ev.preventDefault();
     var search = document.getElementById('input').value;
