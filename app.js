@@ -1,17 +1,18 @@
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
- 
+
 document.addEventListener("DOMContentLoaded", init);
 
-
 function init() {
-  var ocultar = document.getElementById('ocultar')
-  ocultar.addEventListener("click", ocult, true);
+  var ocultar = document.getElementById("ocultar");
+  var oculto = document.getElementById("oculto");
+  ocultar.addEventListener("click", mostrarOcultar);
 
-  function ocult(event) {
-    var oculto = document.getElementById('oculto');
-    oculto.style.display = "none";
-    event.preventDefault();
-
+  function mostrarOcultar() {
+    if (oculto.style.display == "none") {
+      oculto.style.display = "flex";
+    } else {
+      oculto.style.display = "none";
+    }
   }
 }
 /*
@@ -36,8 +37,6 @@ function init() {
     .catch(err => console.log(err))
   });
 */
-
-
 
 // ############ ENDPOINT DE SEARCH ##############
 /*

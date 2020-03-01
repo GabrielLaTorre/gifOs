@@ -32,7 +32,7 @@
 }
 
 .nav-down {
-    margin-top: 19px;
+    margin-top: 25px;
     height: 99px;
     background: #E6E6E6;
     border: 1px solid #808080;
@@ -141,12 +141,14 @@ a span {
 
 
 #oculto {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     padding: 10px 10px;
     width: 170px;
     height: 102px;
+    position: absolute;
+    top: 97px;
     background: #E6E6E6;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
