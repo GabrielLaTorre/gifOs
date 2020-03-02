@@ -2,7 +2,34 @@ const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
 document.addEventListener("DOMContentLoaded", init);
 
+
 function init() {
+  // ############ SWITCH THEMES ##############
+
+var ocultar = document.getElementById("ocultar");
+var oculto = document.getElementById("oculto");
+ocultar.addEventListener("click", mostrarOcultar);
+
+function mostrarOcultar() {
+  if (oculto.style.display == "none") {
+    oculto.style.display = "flex";
+    var them1 = document.getElementById('night');
+    them1.addEventListener("click", switchTeme('dark.css'))
+
+    function switchTeme(sheet) {
+    var theme = document.getElementById('style');
+    theme.setAttribute('href', sheet);
+    console.log(theme);
+}
+  } else {
+    oculto.style.display = "none";
+  }
+}
+
+}
+
+ /*
+// ############ ENDPOINT DE TRENDING ##############
   var trending = document.getElementsByClassName("trend-card");
   fetch(
     `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`
@@ -16,22 +43,12 @@ function init() {
         var img = document.createElement("img");
         img.setAttribute("src", src);
         elemento.insertAdjacentElement("afterbegin", img)
-        console.log(elemento);
     }
     })
     .catch(e => console.log(e));
 
-var ocultar = document.getElementById("ocultar");
-  var oculto = document.getElementById("oculto");
-  ocultar.addEventListener("click", mostrarOcultar);
 
-  function mostrarOcultar() {
-    if (oculto.style.display == "none") {
-      oculto.style.display = "flex";
-    } else {
-      oculto.style.display = "none";
-    }
-  }
+// ############ ENDPOINT DE RANDOM ##############
 
   var cards = [];
   var uno = document.getElementById("rec-1");
@@ -40,8 +57,6 @@ var ocultar = document.getElementById("ocultar");
   var cuatro = document.getElementById("rec-4");
   cards.push(uno,dos,tres,cuatro);
 
-
-  // ############ ENDPOINT DE RANDOM ##############
 
   cards.forEach(element => {
     fetch('https://api.giphy.com/v1/gifs/random?api_key=lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw&tag=&rating=G')
@@ -54,7 +69,7 @@ var ocultar = document.getElementById("ocultar");
     })
     .catch(err => console.log(err))
   });
-}
+
 
 /*
 // ############ ENDPOINT DE SEARCH ##############
