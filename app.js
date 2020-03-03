@@ -2,6 +2,14 @@ const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
 document.addEventListener("DOMContentLoaded", init);
 
+function switchTeme() {
+  var theme = document.getElementById('style');
+  theme.setAttribute('href', 'dark.css');
+}
+
+
+
+
 
 function init() {
   // ############ SWITCH THEMES ##############
@@ -14,18 +22,12 @@ function mostrarOcultar() {
   if (oculto.style.display == "none") {
     oculto.style.display = "flex";
     var them1 = document.getElementById('night');
-    them1.addEventListener("click", switchTeme('dark.css'))
-
-    function switchTeme(sheet) {
-    var theme = document.getElementById('style');
-    theme.setAttribute('href', sheet);
-    console.log(theme);
-}
+    them1.addEventListener("click", switchTeme);
+    console.log(them1);
   } else {
     oculto.style.display = "none";
   }
 }
-
 }
 
  /*
