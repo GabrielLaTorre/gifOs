@@ -1,23 +1,19 @@
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
-var style = 'light';
 
-document.addEventListener("DOMContentLoaded", init);
-
-function switchTeme() {
+function switchTeme(e) {
   let dark = 'dark.css';
   let light = 'styles.css'
   var theme = document.getElementById('style');
-  if (style == 'light') {
-    style = 'dark';
-    theme.setAttribute('href', dark);
-    console.log(e.currentTarget);
-  } else {
-    style = 'light';
+  if (e.target.id == 'day') {
     theme.setAttribute('href', light);
-    console.log(e.currentTarget);
-  }
-  
+  } 
+  else if (e.target.id == 'night') {;
+    theme.setAttribute('href', dark);
+  }  
 }
+
+document.addEventListener("DOMContentLoaded", init);
+
 
 function init() { 
   // ############ SWITCH THEMES ##############
@@ -38,6 +34,7 @@ function mostrarOcultar() {
     oculto.style.display = "none";
   }
 }
+
 }
 
  /*
@@ -102,4 +99,5 @@ function mostrarOcultar() {
         console.log(error);
       });
   }); 
-}*/
+}
+*/
