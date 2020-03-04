@@ -112,12 +112,12 @@ body {
     color: #8b8b8b;
 }
 
-.nav-rigth a:active span {
+.nav-rigth > a:active span {
     border-bottom: 1px solid #8b8b8b;
     ;
 }
 
-a span {
+.nav-rigth a span {
     border-bottom: 1px solid #110038;
 }
 
@@ -151,6 +151,7 @@ a span {
     font-size: 16px;
     width: 144px;
     height: 36px;
+    color: black;
     background: #F7C9F3;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;

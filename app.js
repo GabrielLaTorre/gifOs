@@ -1,18 +1,27 @@
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
+var style = 'light';
 
 document.addEventListener("DOMContentLoaded", init);
 
 function switchTeme() {
+  let dark = 'dark.css';
+  let light = 'styles.css'
   var theme = document.getElementById('style');
-  theme.setAttribute('href', 'dark.css');
+  if (style == 'light') {
+    style = 'dark';
+    theme.setAttribute('href', dark);
+    console.log(e.currentTarget);
+  } else {
+    style = 'light';
+    theme.setAttribute('href', light);
+    console.log(e.currentTarget);
+  }
+  
 }
 
-
-
-
-
-function init() {
+function init() { 
   // ############ SWITCH THEMES ##############
+
 
 var ocultar = document.getElementById("ocultar");
 var oculto = document.getElementById("oculto");
@@ -21,9 +30,10 @@ ocultar.addEventListener("click", mostrarOcultar);
 function mostrarOcultar() {
   if (oculto.style.display == "none") {
     oculto.style.display = "flex";
-    var them1 = document.getElementById('night');
+    var them1 = document.getElementById('day');
+    var them2 = document.getElementById('night');
     them1.addEventListener("click", switchTeme);
-    console.log(them1);
+    them2.addEventListener("click", switchTeme);
   } else {
     oculto.style.display = "none";
   }
