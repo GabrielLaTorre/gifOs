@@ -39,9 +39,9 @@ function mostrarOcultar() {
   }
 }
 
-}
 
- /*
+
+
 // ############ ENDPOINT DE TRENDING ##############
   var trending = document.getElementsByClassName("trend-card");
   fetch(
@@ -83,7 +83,7 @@ function mostrarOcultar() {
     .catch(err => console.log(err))
   });
 
-
+}
 /*
 // ############ ENDPOINT DE SEARCH ##############
 
