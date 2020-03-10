@@ -37,9 +37,7 @@ body {
 
 .nav-down {
     margin-top: 25px;
-    height: 99px;
     background: #E6E6E6;
-    border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
@@ -65,7 +63,6 @@ body {
     letter-spacing: 0;
     line-height: 22px;
     background: #FFFFFF;
-    border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
 }
 
