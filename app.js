@@ -1,7 +1,28 @@
-import * as api from "./api.js";
+var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
 document.addEventListener("DOMContentLoaded", init);
 
+function getTrending() {
+  var trending = document.getElementsByClassName("trend-card");
+  fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`)
+     .then(res => res.json())
+     .then(obj => obj.data)
+     .then(data => {
+       for (let i = 0; i < trending.length; i++) {
+         var src = data[i].images.downsized.url;
+         var elemento = trending[i];
+         var img = document.createElement("img");
+         img.setAttribute("src", src);
+         elemento.insertAdjacentElement("afterbegin", img)
+     }
+     })
+     .catch(e => console.log(e));
+   }
+
+function init() { 
+ getTrending();
+}
+/*
 function switchTeme(e) {
   let dark = 'dark.css';
   let light = 'styles.css'
@@ -21,7 +42,7 @@ function switchTeme(e) {
 
 
 
-function init() { 
+
 
   var trending = document.getElementsByClassName("trend-card");
   api.getTrending;
@@ -55,4 +76,5 @@ function mostrarOcultar() {
     oculto.style.display = "none";
   }
 }
-}
+
+*/

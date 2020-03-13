@@ -1,7 +1,8 @@
+/*
+var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
-   export const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
-
-   export var getTrending = fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`)
+   export function getTrending() {
+     fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`)
         .then(res => res.json())
         .then(obj => obj.data)
         .then(data => {
@@ -14,8 +15,9 @@
         }
         })
         .catch(e => console.log(e));
+      }
 
-    export var getRandomCards = (element) => {
+    export function getRandomCards(element) {
     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
     .then(response => response.json())
     .then(content => {
@@ -26,7 +28,7 @@
     })
     .catch(err => console.log(err))
 }
-/*
+
 
 // ############ ENDPOINT DE TRENDING ##############
 var trending = document.getElementsByClassName("trend-card");
