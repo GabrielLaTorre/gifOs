@@ -1,26 +1,13 @@
-var apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
+import {api} from './api.js';
+import {cards} from './handlers.js';
 
 document.addEventListener("DOMContentLoaded", init);
 
-function getTrending() {
-  var trending = document.getElementsByClassName("trend-card");
-  fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`)
-     .then(res => res.json())
-     .then(obj => obj.data)
-     .then(data => {
-       for (let i = 0; i < trending.length; i++) {
-         var src = data[i].images.downsized.url;
-         var elemento = trending[i];
-         var img = document.createElement("img");
-         img.setAttribute("src", src);
-         elemento.insertAdjacentElement("afterbegin", img)
-     }
-     })
-     .catch(e => console.log(e));
-   }
-
 function init() { 
- getTrending();
+  const ap = new api();
+  ap.getTrending();
+
+  cards.forEach(element => ap.getRandomCards(element));
 }
 /*
 function switchTeme(e) {
