@@ -1,14 +1,13 @@
-import {api} from './api.js';
 import {cards} from './handlers.js';
+import {getTrending, getRandomCards} from './api.js'
 
 document.addEventListener("DOMContentLoaded", init);
 
 function init() { 
-  const ap = new api();
-  ap.getTrending();
-
-  cards.forEach(element => ap.getRandomCards(element));
+  getTrending();
+  cards.forEach(element => getRandomCards(element));
 }
+
 /*
 function switchTeme(e) {
   let dark = 'dark.css';
@@ -25,26 +24,6 @@ function switchTeme(e) {
     theme.setAttribute('href', dark);
   }  
 }
-
-
-
-
-
-
-  var trending = document.getElementsByClassName("trend-card");
-  api.getTrending;
-
-
-  var cards = [];
-  var uno = document.getElementById("rec-1");
-  var dos = document.getElementById("rec-2");
-  var tres = document.getElementById("rec-3");
-  var cuatro = document.getElementById("rec-4");
-  cards.push(uno,dos,tres,cuatro);
-
-cards.forEach(element => {
-  api.getRandomCards;
-})
 
 // ############ SWITCH THEMES ##############
 
