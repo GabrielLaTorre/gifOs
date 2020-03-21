@@ -252,14 +252,14 @@ body {
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
-#rec-1 img, #rec-2 img, #rec-3 img, #rec-4 img {
+.rec-card img {
     background: #E6E6E6;
     margin: auto;
     width: 99.2%;
     height: 310px; 
 }
 
-#rec-1 p, #rec-2 p, #rec-3 p, #rec-4 p {
+.rec-card p {
     padding-top: 3px;
     padding-left: 5px;
     height: 24px;

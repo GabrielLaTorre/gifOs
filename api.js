@@ -19,7 +19,7 @@ function getTrending() {
      .catch(e => console.log(e));
    }
 
- function getRandomCards(element) {
+   function getRandomCards(element) {
     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
     .then(response => response.json())
     .then(content => {
@@ -29,7 +29,19 @@ function getTrending() {
       element.insertAdjacentElement("beforeend", img);
     })
     .catch(err => console.log(err))
-}
+} 
+
+//  function getRandomCards(element) {
+//     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
+//     .then(response => response.json())
+//     .then(content => {
+//       var src = content.data.images.downsized.url;
+//       let img = document.createElement('img');
+//       img.setAttribute('src', src);
+//       element.insertAdjacentElement("beforeend", img);
+//     })
+//     .catch(err => console.log(err))
+// }
 
 
 /* 
