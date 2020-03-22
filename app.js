@@ -1,12 +1,13 @@
-import {cards} from './handlers.js';
-import {getTrending, getRandomCards} from './api.js'
+import {searchBtn} from './handlers.js'
+import {getTrendingGifs, getRandomGifs, getSearchGifs} from './api.js'
 
 document.addEventListener("DOMContentLoaded", init);
 
 function init() { 
-  getTrending();
-  cards.forEach(element => getRandomCards(element));
-}
+  searchBtn.addEventListener('click',  getSearchGifs);
+  getTrendingGifs();
+  getRandomGifs();
+ }
 
 /*
 function switchTeme(e) {

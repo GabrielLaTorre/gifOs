@@ -1,8 +1,9 @@
-export {getTrending, getRandomCards};
+import {randomCards, searchCards, searchInput} from './handlers.js';
+export {getTrendingGifs, getRandomGifs, getSearchGifs};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
-function getTrending() {
+function getTrendingGifs() {
   var trending = document.getElementsByClassName("trend-card");
   fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=10&rating=G`)
      .then(res => res.json())
@@ -19,7 +20,8 @@ function getTrending() {
      .catch(e => console.log(e));
    }
 
-   function getRandomCards(element) {
+   function getRandomGifs() {
+    randomCards.forEach(element => {
     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
     .then(response => response.json())
     .then(content => {
@@ -29,7 +31,26 @@ function getTrending() {
       element.insertAdjacentElement("beforeend", img);
     })
     .catch(err => console.log(err))
-} 
+    })
+}
+
+  function getSearchGifs() {
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchInput}&limit=10&offset=0&rating=G&lang=en`)
+      .then(response => response.json() )
+      .then(content => console.log(content))
+      .then(data => {
+        for (let i = 0; i < searchCards.length; i++) {
+          const element = searchCards[i];
+          var src = data[i].images.downsized.url;
+          let img = document.createElement('img');
+          img.setAttribute('src', src);
+          element.insertAdjacentElement('afterbegin', img);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
 //  function getRandomCards(element) {
 //     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
