@@ -1,4 +1,4 @@
-import {randomCards, searchCards, searchInput} from './handlers.js';
+import {randomCards, searchCards, searchSection} from './handlers.js';
 export {getTrendingGifs, getRandomGifs, getSearchGifs};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
@@ -35,16 +35,18 @@ function getTrendingGifs() {
 }
 
   function getSearchGifs() {
+    searchSection.style = 'display: block';
+    let searchInput = document.getElementById("input").value;
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchInput}&limit=10&offset=0&rating=G&lang=en`)
       .then(response => response.json() )
-      .then(content => console.log(content))
+      .then(content => content.data)
       .then(data => {
         for (let i = 0; i < searchCards.length; i++) {
           const element = searchCards[i];
           var src = data[i].images.downsized.url;
           let img = document.createElement('img');
           img.setAttribute('src', src);
-          element.insertAdjacentElement('afterbegin', img);
+          element.insertAdjacentElement('beforeend', img);
         }
       })
       .catch(error => {
