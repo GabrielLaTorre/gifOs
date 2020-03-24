@@ -1,10 +1,24 @@
-import {searchBtn} from './handlers.js'
+import {searchBtn, searchCards, searchSection} from './handlers.js'
 import {getTrendingGifs, getRandomGifs, getSearchGifs} from './api.js'
 
 document.addEventListener("DOMContentLoaded", init);
 
-function init() { 
-  searchBtn.addEventListener('click',  getSearchGifs);
+function printGifs() {
+  searchSection.style = 'display: block';
+  var promise = getSearchGifs();
+  promise.then(randomResults =>{
+    for (let i = 0; i < searchCards.length; i++) {
+      const element = searchCards[i];
+      var src = randomResults[i].images.downsized.url;
+      let img = document.createElement('img');
+      img.setAttribute('src', src);
+      element.insertAdjacentElement('afterbegin', img);
+    }
+  })
+}
+
+function init() {  
+  searchBtn.addEventListener('click', printGifs);
   getTrendingGifs();
   getRandomGifs();
  }

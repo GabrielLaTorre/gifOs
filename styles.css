@@ -164,13 +164,7 @@ body {
     cursor: pointer;
 }
 
-.test:hover > button, .test:hover > img  {
-    border-style: dotted;
-    border-width: 1px;
-}
-
 .test button {
-    padding-right: 25px;
     width: 130px;
 }
 
@@ -193,6 +187,14 @@ body {
 
 .btn-pink:hover {
     cursor: pointer;
+}
+
+.btn-pink span {
+    padding: 4px 19px;
+}
+
+.btn-pink:hover > span {
+    border: 1px dotted black;
 }
 
 

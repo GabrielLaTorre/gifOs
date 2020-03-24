@@ -35,25 +35,19 @@ function getTrendingGifs() {
 }
 
   function getSearchGifs() {
-    searchSection.style = 'display: block';
     let searchInput = document.getElementById("input").value;
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchInput}&limit=10&offset=0&rating=G&lang=en`)
-      .then(response => response.json() )
+    const found = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchInput}&limit=10&offset=0&rating=G&lang=en`)
+      .then(response => response.json())
       .then(content => content.data)
       .then(data => {
-        for (let i = 0; i < searchCards.length; i++) {
-          const element = searchCards[i];
-          var src = data[i].images.downsized.url;
-          let img = document.createElement('img');
-          img.setAttribute('src', src);
-          element.insertAdjacentElement('beforeend', img);
-        }
+        return data
       })
       .catch(error => {
         console.log(error);
       });
+      return found;
   }
-
+  
 //  function getRandomCards(element) {
 //     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
 //     .then(response => response.json())

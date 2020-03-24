@@ -126,13 +126,7 @@ body {
     cursor: pointer;
 }
 
-.test:hover > button, .test:hover > img  {
-    border-style: dotted;
-    border-width: 1px;
-}
-
 .test button {
-    padding-right: 25px;
     width: 130px;
 }
 
