@@ -14,3 +14,10 @@ for (let i = 0; i < elements.length; i++) {
     const element = elements[i];
     searchCards.push(element);
 }
+
+export function inputController() {
+    let input = document.getElementById('input');
+    if(input.value != ''){
+        console.log('Estan escribiendo');
+    }
+}

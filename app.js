@@ -1,9 +1,10 @@
-import {searchBtn, searchCards, searchSection} from './handlers.js'
+import {searchBtn, searchCards, searchSection, inputController} from './handlers.js'
 import {getTrendingGifs, getRandomGifs, getSearchGifs} from './api.js'
 
 document.addEventListener("DOMContentLoaded", init);
 
 function printGifs() {
+  inputController()
   searchSection.style = 'display: block';
   var promise = getSearchGifs();
   promise.then(randomResults =>{

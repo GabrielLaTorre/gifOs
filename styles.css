@@ -121,7 +121,7 @@ body {
 }
 
 .nav-rigth {
-    width: 34%;
+    width: 35%;
     justify-content: space-around;
     display: flex;
 }
@@ -160,22 +160,39 @@ body {
     height: 36px;
 }
 
-.test :hover {
+.btn-pink:hover, .test:hover button, .test:hover img {
+    background: #E6BBE2;
+}
+
+.test:hover, .btn-pink:hover {
     cursor: pointer;
+}
+
+.test:hover span, .test:hover img, .btn-pink:hover span {
+    border: 1px dotted black;
 }
 
 .test button {
     width: 130px;
 }
 
-.test img {
-    padding: 14px;
+.arrow-div {
+    width: 36px;
+    height: 36px;
     background: #F7C9F3;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
+.arrow-div img {
+    position: relative;
+    top: 2px;
+    left: 1px;
+    padding: 11px 10px;
+}
+
 .btn-pink {
+    padding: 0px;
     font-size: 16px;
     width: 144px;
     height: 36px;
@@ -185,18 +202,13 @@ body {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.btn-pink:hover {
-    cursor: pointer;
+#create-spn {
+    padding: 4px 23px;
 }
 
 .btn-pink span {
     padding: 4px 19px;
 }
-
-.btn-pink:hover > span {
-    border: 1px dotted black;
-}
-
 
 #oculto {
     display: none;
