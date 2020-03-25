@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded", init);
 function printGifs() {
   inputController()
   searchSection.style = 'display: block';
-  var promise = getSearchGifs();
+  let promise = getSearchGifs();
   promise.then(randomResults =>{
     for (let i = 0; i < searchCards.length; i++) {
       const element = searchCards[i];
-      var src = randomResults[i].images.downsized.url;
+      let src = randomResults[i].images.downsized.url;
       let img = document.createElement('img');
       img.setAttribute('src', src);
       element.insertAdjacentElement('afterbegin', img);
