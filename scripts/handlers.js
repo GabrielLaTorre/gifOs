@@ -7,6 +7,7 @@ randomCards.push(uno,dos,tres,cuatro);
 
 export var searchBtn = document.getElementById("search-btn");
 export var searchSection = document.getElementById("search-results");
+export var searchImg = document.getElementById('search-img');
 
 export var searchCards = [];
 var elements = document.getElementsByClassName('search-card');
