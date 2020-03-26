@@ -1,3 +1,4 @@
+import {searchBtn} from './handlers.js';
 export {switchTeme, mostrarOcultar}
 
 function switchTeme(e) {
@@ -7,12 +8,14 @@ function switchTeme(e) {
     let theme = document.getElementById('style');
     if (e.target.id == 'day') {
       let logo = document.getElementById('logo');
+      searchBtn.setAttribute('src', '/images/lupa_inactive.svg')
       logo.setAttribute('src', '/images/logo.png');
       arrow.setAttribute('src', '/images/dropdown.svg');
       theme.setAttribute('href', light);
     } 
     else if (e.target.id == 'night') {;
       let logo = document.getElementById('logo');
+      searchBtn.setAttribute('src', '/images/lupa_gray.svg')
       logo.setAttribute('src', '/images/logo_dark.png');
       arrow.setAttribute('src', '/images/whitedown.svg');
       theme.setAttribute('href', night);

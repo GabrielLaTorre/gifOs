@@ -39,15 +39,16 @@ body {
 .nav-down {
     margin-top: 25px;
     height: 99px;
-    background: #E6E6E6;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+    background: #B4B4B4;
+    box-shadow: inset -2px -2px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
 }
 
 .nav-down p {
     padding-top: 3px;
-    padding-left: 3px;
+    padding-left: 5px;
     padding-bottom: 3px;
     background-image: linear-gradient(270deg, #EE3EFE 0%, #2E32FB 100%);
+    box-shadow: inset -2px 0px 0 0 #8F8F8F, inset 2px 2px 0 0 #FFFFFF;
     font-weight: bold;
     font-size: 14px;
     color: #FFFFFF;
@@ -72,11 +73,11 @@ body {
     width: 8%;
     height: 36px;
     margin-left: 8px;
-    color: #B4B4B4;
+    color: #8F8F8F;
     font-size: 16px;
     letter-spacing: 0;
     line-height: 18px;
-    background: #E6E6E6;
+    background: #B4B4B4;
 }
 
 #input:in-range + button {

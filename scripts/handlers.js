@@ -5,7 +5,7 @@ var tres = document.getElementById("rec-3");
 var cuatro = document.getElementById("rec-4");
 randomCards.push(uno,dos,tres,cuatro);
 
-export var searchBtn = document.getElementById("boton");
+export var searchBtn = document.getElementById("search-btn");
 export var searchSection = document.getElementById("search-results");
 
 export var searchCards = [];
