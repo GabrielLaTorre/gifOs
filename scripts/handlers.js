@@ -21,3 +21,6 @@ export function inputController() {
         console.log('Estan escribiendo');
     }
 }
+
+
+export var handlerUl = document.getElementById("handler-ul");

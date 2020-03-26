@@ -76,6 +76,7 @@ body {
     letter-spacing: 0;
     line-height: 18px;
     background: #E6E6E6;
+    border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
@@ -138,7 +139,7 @@ body {
     line-height: 18px;
 }
 
-.nav-rigth a:hover {
+.mis-guifos:hover {
     border: 0.5px dotted black;
 }
 
@@ -146,12 +147,11 @@ body {
     color: #8b8b8b;
 }
 
-.nav-rigth > a:active span {
+.mis-guifos:active span {
     border-bottom: 1px solid #8b8b8b;
-    ;
 }
 
-.nav-rigth a span {
+.mis-guifos span {
     border-bottom: 1px solid #110038;
 }
 
@@ -164,11 +164,19 @@ body {
     background: #E6BBE2;
 }
 
+.btn-pink:active, .test:active button, .test:active img {
+    background: #E6BBE2;
+}
+
 .test:hover, .btn-pink:hover {
     cursor: pointer;
 }
 
-.test:hover span, .test:hover img, .btn-pink:hover span {
+.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover > span {
+    border: 1px dotted black;
+}
+
+.test:active >.btn-pink > span, .test:active img, .btn-pink:active > span {
     border: 1px dotted black;
 }
 
@@ -176,7 +184,7 @@ body {
     width: 130px;
 }
 
-.arrow-div {
+#handler-ul {
     width: 36px;
     height: 36px;
     background: #F7C9F3;
@@ -184,7 +192,7 @@ body {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.arrow-div img {
+#handler-ul img {
     position: relative;
     top: 2px;
     left: 1px;
@@ -215,7 +223,7 @@ body {
     flex-direction: column;
     justify-content: space-around;
     padding: 10px 10px;
-    width: 170px;
+    width: 166px;
     height: 102px;
     position: absolute;
     top: 97px;
@@ -233,13 +241,26 @@ body {
     color: #110038;
     letter-spacing: 0;
     line-height: 22px;
+}
+
+#oculto li:hover {
+    cursor: pointer;
+}
+
+#night {
+    background: #F0F0F0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#day {
     background: #FFF4FD;
     border: 1px solid #CCA6C9;
     box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-#oculto li:hover {
-    cursor: pointer;
+#day span {
+    border-bottom: 1px solid #110038;
 }
 
 .tittle {

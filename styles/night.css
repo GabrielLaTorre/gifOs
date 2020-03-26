@@ -24,6 +24,7 @@ body {
     font-size: 12px;
 }
 
+
 .top p {
     padding-top: 4px;
     padding-left: 3px;
@@ -37,6 +38,7 @@ body {
 
 .nav-down {
     margin-top: 25px;
+    height: 99px;
     background: #E6E6E6;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
@@ -75,6 +77,41 @@ body {
     letter-spacing: 0;
     line-height: 18px;
     background: #E6E6E6;
+}
+
+#input:in-range + button {
+    background: #F7C9F3;
+    border: 1px solid #110038;
+    color: #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#input:required ~ div {
+    display: flex;
+}
+
+#input:focus {
+    color: #110038;
+}
+
+.input-bar {
+    position: absolute;
+    top: 234px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 1187px;
+    height: 160px;
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.input-bar > button {
+    width: 87%;
+    height: 36px;
+    margin-left: 15px;
+    padding-right: 990px;
+    background: #F0F0F0;
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
@@ -96,25 +133,25 @@ body {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    color: #110038;
+    color: #FFFFFF;
     letter-spacing: 0;
     line-height: 18px;
 }
 
 .mis-guifos:hover {
-    border: 0.5px dotted black;
+    border: 0.5px dotted #FFFFFF;;
 }
 
 .mis-guifos:active {
     color: #8b8b8b;
 }
 
-.nav-rigth a:active span {
+.mis-guifos:active span {
     border-bottom: 1px solid #8b8b8b;
 }
 
-.nav-right a span {
-    border-bottom: 1px solid #110038;
+.mis-guifos span {
+    border-bottom: 1px solid #FFFFFF;;
 }
 
 .test {
@@ -122,20 +159,43 @@ body {
     height: 36px;
 }
 
-.test :hover {
+.btn-pink:hover, .test:hover button, .test:hover img {
+    background: #CE36DB;
+}
+
+.btn-pink:active, .test:active button, .test:active img {
+    background: #CE36DB;
+}
+
+.test:hover, .btn-pink:hover {
     cursor: pointer;
+}
+
+.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover > span {
+    border: 1px dotted black;
+}
+
+.test:active >.btn-pink > span, .test:active img, .btn-pink:active > span {
+    border: 1px dotted black;
 }
 
 .test button {
     width: 130px;
 }
 
-.arrow-spn {
+#handler-ul {
     width: 36px;
     height: 36px;
-    background: #F7C9F3;
+    background: #EE3EFE;
     border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#handler-ul img {
+    position: relative;
+    top: 2px;
+    left: 1px;
+    padding: 11px 10px;
 }
 
 .btn-pink {
@@ -143,27 +203,30 @@ body {
     font-size: 16px;
     width: 144px;
     height: 36px;
-    color: white;
+    color: #ffffff;
     background: #EE3EFE;
     border: 1px solid #110038;
-    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.btn-pink:hover {
-    cursor: pointer;
+#create-spn {
+    padding: 4px 23px;
 }
 
+.btn-pink span {
+    padding: 4px 19px;
+}
 
 #oculto {
     display: none;
     flex-direction: column;
     justify-content: space-around;
     padding: 10px 10px;
-    width: 170px;
+    width: 166px;
     height: 102px;
     position: absolute;
     top: 97px;
-    background: #E6E6E6;
+    background: #B4B4B4;
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
@@ -174,20 +237,30 @@ body {
     padding-top: 7px;
     padding-left: 16px;
     font-size: 16px;
-    color: #110038;
     letter-spacing: 0;
     line-height: 22px;
-    background: #FFF4FD;
-    border: 1px solid #CCA6C9;
-    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
 }
 
 #oculto li:hover {
     cursor: pointer;
 }
 
-#oculto li:active > span {
-    border-bottom: 1px solid black;
+#night {
+    background: #2E32FB;
+    color: #ffffff;
+    border: 1px solid rgba(51,53,143,0.20);
+    box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#night span {
+    border-bottom: 1px solid #ffffff;
+}
+
+#day {
+    background: #CCCCCC;
+    color: #110038;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
 .tittle {
@@ -199,6 +272,11 @@ body {
     background: #FFFAFE;
     border: 1px solid #E6BBE2;
     box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+}
+
+#search-results {
+    position: relative;
+    display: none;
 }
 
 .contain {
@@ -258,7 +336,7 @@ body {
     box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.349);
 }
 
-.trend-card img{
+.trend-card img, .search-card img{
     width: 100%;
     height: 300px;
 }
