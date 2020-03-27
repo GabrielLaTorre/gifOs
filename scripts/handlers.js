@@ -1,8 +1,8 @@
 export var randomCards = [];
-var uno = document.getElementById("rec-1");
-var dos = document.getElementById("rec-2");
-var tres = document.getElementById("rec-3");
-var cuatro = document.getElementById("rec-4");
+var uno = document.getElementById("rec-gif1");
+var dos = document.getElementById("rec-gif2");
+var tres = document.getElementById("rec-gif3");
+var cuatro = document.getElementById("rec-gif4");
 randomCards.push(uno,dos,tres,cuatro);
 
 export var searchBtn = document.getElementById("search-btn");

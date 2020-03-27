@@ -1,4 +1,4 @@
-import {randomCards, searchCards, searchSection} from './handlers.js';
+import {randomCards} from './handlers.js';
 export {getTrendingGifs, getRandomGifs, getSearchGifs};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
@@ -26,9 +26,8 @@ function getTrendingGifs() {
     .then(response => response.json())
     .then(content => {
       var src = content.data.images.downsized.url;
-      let img = document.createElement('img');
+      let img = element;
       img.setAttribute('src', src);
-      element.insertAdjacentElement("beforeend", img);
     })
     .catch(err => console.log(err))
     })
