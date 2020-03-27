@@ -7,7 +7,7 @@
 }
 
 body {
-    background: rgb(1, 2, 104);
+    background: rgb(18, 3, 58);
 }
 
 #center {
@@ -69,7 +69,7 @@ body {
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
 }
 
-.nav-down button {
+#search-btn {
     width: 8%;
     height: 36px;
     margin-left: 8px;
@@ -78,6 +78,8 @@ body {
     letter-spacing: 0;
     line-height: 18px;
     background: #B4B4B4;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
 #input:in-range + button {
@@ -357,12 +359,6 @@ body {
 .gif-b {
     grid-column-start: 3;
     grid-column-end: 5;
-}
-
-.contenedor div {
-    border: 1px solid black;
-    background: rgb(116, 116, 250);
-    box-shadow: inset 0px 0px 8px 2px rgba(0, 0, 0, 0.349);
 }
 
 .trend-card img, .search-card img{
