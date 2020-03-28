@@ -1,5 +1,21 @@
-import {searchImg} from './handlers.js';
-export {switchTeme, mostrarOcultar}
+import {getSearchGifs} from './api.js';
+import {searchImg, searchCards, searchSection} from './handlers.js';
+export {switchTeme, mostrarOcultar, printGifs, createTitle}
+
+function printGifs() {
+  searchSection.style = 'display: block';
+  let gifData = getSearchGifs();
+  gifData.then(gifObject =>{
+    for (let i = 0; i < searchCards.length; i++) {
+      const element = searchCards[i];
+      let src = gifObject[i].images.downsized.url;
+      let img = document.createElement('img');
+      img.setAttribute('src', src);
+      element.insertAdjacentElement('afterbegin', img);
+    }
+  })
+}
+
 
 function switchTeme(e) {
     let night = '/styles/night.css';
@@ -38,3 +54,12 @@ function switchTeme(e) {
     }
   }
   
+  function createTitle(title) {
+    var result = [];
+    var newTitle = title.split(' ');
+    for (let i = 0; i < 3; i++) {
+      const element = newTitle[i];
+      result.push(element);
+    }
+    console.log(result.toString());
+  }

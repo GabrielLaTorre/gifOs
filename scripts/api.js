@@ -1,4 +1,5 @@
-import {randomCards} from './handlers.js';
+import {randomCards, titlesGif} from './handlers.js';
+import {createTitle} from './stylesDOM.js';
 export {getTrendingGifs, getRandomGifs, getSearchGifs};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
@@ -25,7 +26,9 @@ function getTrendingGifs() {
     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
     .then(response => response.json())
     .then(content => {
-      var src = content.data.images.downsized.url;
+      let title = createTitle(content.data.title);
+      console.log(title);
+      let src = content.data.images.downsized.url;
       let img = element;
       img.setAttribute('src', src);
     })

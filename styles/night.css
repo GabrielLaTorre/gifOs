@@ -285,7 +285,7 @@ body {
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.tittle {
+.title {
     margin-top: 76px;
     padding-top: 6px;
     padding-left: 16px;
@@ -308,14 +308,14 @@ body {
     justify-content: space-between;
 }
 
-.contain div {
+.rec-div {
     width: 24%;
     height: 100%;
     background: #B4B4B4;
     box-shadow: inset -2px -2px 0px 0px #5C5C5C, inset 2px 2px 0px 0px #FFFFFF;
 }
 
-.gif-random {
+.rec-gif {
     padding: 3px;
     background: #B4B4B4;
     box-shadow: inset -2px -2px 0 0 #5C5C5C, inset 2px 2px 0 0 #FFFFFF;
@@ -323,7 +323,7 @@ body {
     height: 310px; 
 }
 
-#rec-1 p, #rec-2 p, #rec-3 p, #rec-4 p {
+.rec-div p {
     padding-top: 3px;
     padding-left: 5px;
     height: 24px;
