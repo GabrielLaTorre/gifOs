@@ -61,5 +61,5 @@ function switchTeme(e) {
       const element = newTitle[i];
       result.push(element);
     }
-    console.log(result.toString());
+    return result.toString();
   }
