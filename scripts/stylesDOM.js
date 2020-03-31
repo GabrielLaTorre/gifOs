@@ -1,21 +1,26 @@
 import {getSearchGifs} from './api.js';
-import {searchImg, searchCards, searchSection} from './handlers.js';
-export {switchTeme, mostrarOcultar, printGifs, createTitle}
+import {handlersObj} from './handlers.js';
+export {switchTeme, mostrarOcultar, printGifs}
+
+// function printGifs() {
+//   searchSection.style = 'display: block';
+//   let gifData = getSearchGifs();
+//   gifData.then(gifObject =>{
+//     console.log(gifObject);
+//      for (let i = 0; i < searchCards.length; i++) {
+//        const element = searchCards[i];
+//        let src = gifObject[i].images.downsized.url;
+//        let img = document.createElement('img');
+//        img.setAttribute('src', src);
+//        element.insertAdjacentElement('afterbegin', img);
+//      }
+//   })
+// }
 
 function printGifs() {
-  searchSection.style = 'display: block';
-  let gifData = getSearchGifs();
-  gifData.then(gifObject =>{
-    for (let i = 0; i < searchCards.length; i++) {
-      const element = searchCards[i];
-      let src = gifObject[i].images.downsized.url;
-      let img = document.createElement('img');
-      img.setAttribute('src', src);
-      element.insertAdjacentElement('afterbegin', img);
-    }
-  })
+  const gifData = getSearchGifs(handlersObj.searchInput);
+  gifData.then(objeto => console.log(objeto))
 }
-
 
 function switchTeme(e) {
     let night = '/styles/night.css';
@@ -24,14 +29,14 @@ function switchTeme(e) {
     let theme = document.getElementById('style');
     if (e.target.id == 'day') {
       let logo = document.getElementById('logo');
-      searchImg.setAttribute('src', '/images/lupa_inactive.svg')
+      handlersObj.searchImg.setAttribute('src', '/images/lupa_inactive.svg')
       logo.setAttribute('src', '/images/logo.png');
       arrow.setAttribute('src', '/images/dropdown.svg');
       theme.setAttribute('href', light);
     } 
     else if (e.target.id == 'night') {;
       let logo = document.getElementById('logo');
-      searchImg.setAttribute('src', '/images/lupa_gray.svg')
+      handlersObj.searchImg.setAttribute('src', '/images/lupa_gray.svg')
       logo.setAttribute('src', '/images/logo_dark.png');
       arrow.setAttribute('src', '/images/whitedown.svg');
       theme.setAttribute('href', night);
@@ -54,12 +59,16 @@ function switchTeme(e) {
     }
   }
   
-  function createTitle(title) {
-    var result = [];
-    var newTitle = title.split(' ');
-    for (let i = 0; i < 3; i++) {
-      const element = newTitle[i];
-      result.push(element);
-    }
-    return result.toString();
-  }
+
+///////////////////////////////////////////////////////////////////
+/////////// FUNCION CREADA PARA CORTAR EL TÍTULO QUE TRAEN LOS GIFS
+
+  // function createTitle(title) {
+  //   var result = [];
+  //   var newTitle = title.split(' ');
+  //   for (let i = 0; i < 3; i++) {
+  //     const element = newTitle[i];
+  //     result.push(element);
+  //   }
+  //   return result.toString();
+  // }

@@ -1,5 +1,4 @@
-import {randomCards, titlesGif} from './handlers.js';
-import {createTitle} from './stylesDOM.js';
+import {handlersObj} from './handlers.js';
 export {getTrendingGifs, getRandomGifs, getSearchGifs};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
@@ -22,30 +21,43 @@ function getTrendingGifs() {
    }
 
    function getRandomGifs() {
-    randomCards.forEach(element => {
+    handlersObj.randomCards.forEach(element => {
     fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
     .then(response => response.json())
     .then(content => {
-      let title = createTitle(content.data.title);
-      console.log(title);
-      let src = content.data.images.downsized.url;
+      // let src = content.data.images.downsized.url;
+      let {data:{images:{downsized:{url}}}} = content;
       let img = element;
-      img.setAttribute('src', src);
+      img.setAttribute('src', url);
+      console.log(url);
     })
     .catch(err => console.log(err))
     })
 }
 
-  function getSearchGifs() {
-    let searchInput = document.getElementById("input").value;
-    const found = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchInput}&limit=10&offset=0&rating=G&lang=en`)
-      .then(response => response.json())
-      .then(content => content.data)
-      .then(data => {
-        return data
-      })
-      .catch(error => {
-        console.log(error);
-      });
-      return found;
-  }
+
+function getSearchGifs(input) {
+  console.log(input);
+  const found = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input}&offset=0&rating=G&lang=en`)
+  .then(response => response.json())
+  .then(content => content.data)
+  .then(data => {
+    return data;
+  })
+  .catch(err => console.log(err))
+  return found;
+}
+
+// function getSearchGifs() {
+  //   let searchInput = document.getElementById("input").value;
+  //   const found = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchInput}&limit=10&offset=0&rating=G&lang=en`)
+  //     .then(response => response.json())
+  //     .then(content => content.data)
+  //     .then(data => {
+  //       return data
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  //     return found;
+  // }
