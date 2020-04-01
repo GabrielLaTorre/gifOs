@@ -4,10 +4,11 @@ export const handlersObj = {
     searchImg: document.getElementById('search-img'),
 
     handlerUl: document.getElementById("handler-ul"),
-    searchInput: document.getElementById("input").value,
+    searchInput: document.getElementById("input"),
     randomCards: [],
     titlesGif: [],
-    searchCards: []
+    searchCards: [],
+    trendCards: document.getElementsByClassName("trend-card")
 }
 
 var recImgs = document.getElementsByClassName('rec-gif');

@@ -1,13 +1,14 @@
 import {handlersObj} from './handlers.js'
 import {getTrendingGifs, getRandomGifs, getSearchGifs} from './api.js'
-import {mostrarOcultar, printGifs} from './stylesDOM.js';
+import {mostrarOcultar, printTrendingGifs} from './stylesDOM.js';
 
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
   handlersObj.handlerUl.addEventListener("click", mostrarOcultar);
-  //getTrendingGifs();
+  // handlersObj.searchBtn.addEventListener('click', printGifs);
+  printTrendingGifs();
   getRandomGifs();
  }
 
- handlersObj.searchBtn.addEventListener('click', printGifs);
+ 

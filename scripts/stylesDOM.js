@@ -1,26 +1,37 @@
-import {getSearchGifs} from './api.js';
+import {getSearchGifs, getTrendingGifs} from './api.js';
 import {handlersObj} from './handlers.js';
-export {switchTeme, mostrarOcultar, printGifs}
-
-// function printGifs() {
-//   searchSection.style = 'display: block';
-//   let gifData = getSearchGifs();
-//   gifData.then(gifObject =>{
-//     console.log(gifObject);
-//      for (let i = 0; i < searchCards.length; i++) {
-//        const element = searchCards[i];
-//        let src = gifObject[i].images.downsized.url;
-//        let img = document.createElement('img');
-//        img.setAttribute('src', src);
-//        element.insertAdjacentElement('afterbegin', img);
-//      }
-//   })
-// }
+export {switchTeme, mostrarOcultar, printTrendingGifs}
 
 function printGifs() {
-  const gifData = getSearchGifs(handlersObj.searchInput);
-  gifData.then(objeto => console.log(objeto))
+  const searchGifs = handlersObj.searchCards
+  const input = handlersObj.searchInput.value;
+  handlersObj.searchSection.style = 'display: block';
+  const gifData = getSearchGifs(input);
+  gifData.then(gifObject =>{
+    console.log(gifObject);
+     for (let i = 0; i < searchGifs.length; i++) {
+       const element = searchGifs[i];
+       const src = gifObject[i].images.downsized.url;
+       const img = document.createElement('img');
+       img.setAttribute('src', src);
+       element.insertAdjacentElement('afterbegin', img);
+     }
+  })
 }
+
+function printTrendingGifs() {
+  const trending = handlersObj.trendCards;
+  const trendingObj = getTrendingGifs();
+  trendingObj.then(data => {
+    for (let i = 0; i < trending.length; i++) {
+      var src = data[i].images.downsized.url;
+      var elemento = trending[i];
+      var img = document.createElement("img");
+      img.setAttribute("src", src);
+      elemento.insertAdjacentElement("afterbegin", img)
+  }})
+}
+
 
 function switchTeme(e) {
     let night = '/styles/night.css';
