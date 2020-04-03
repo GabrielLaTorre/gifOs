@@ -330,10 +330,11 @@ body {
 
 .btn-close {
     position: relative;
-    left: 165px;
-    top: 2px;
+    left: 275px;
+    bottom: 155px;
     z-index: 2;
 }
+
 
 .contenedor {
     margin-top: 20px;

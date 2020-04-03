@@ -28,8 +28,8 @@ function getTrendingGifs() {
 }
 
 
-function getSearchGifs(input) {
-  const found = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input}&limit=10&offset=0&rating=G&lang=en`)
+function getSearchGifs(input, limit) {
+  const found = fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${input}&limit=${limit}&offset=0&rating=G&lang=en`)
   .then(response => response.json())
   .then(content => content.data)
   .then(data => {

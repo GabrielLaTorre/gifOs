@@ -8,7 +8,19 @@ export const handlersObj = {
     randomCards: [],
     titlesGif: [],
     searchCards: [],
-    trendCards: document.getElementsByClassName("trend-card")
+    trendCards: document.getElementsByClassName("trend-card"), 
+    recommendedTopics: [
+        'Deadpool',
+        'Pikachu',
+        'Sailor Moon',
+        'lol',
+        'Naruto',
+        'Boca Juniors',
+        'Developer',
+        'Kiss',
+        'Rock',
+        'Game',
+      ]
 }
 
 var recImgs = document.getElementsByClassName('rec-gif');
