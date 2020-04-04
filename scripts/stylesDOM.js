@@ -1,40 +1,27 @@
-import { getSearchGifs, getTrendingGifs } from "./api.js";
+import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch} from "./api.js";
 import { handlersObj } from "./handlers.js";
-export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs };
-
-printRecommendedGifs();
+export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle };
 
 function printRecommendedGifs() { 
-  const counter = [];
   const recommendedTitles = handlersObj.recommendedTopics;
   const recommendedCards = handlersObj.randomCards;
   const limitGifs = recommendedTitles.length;
-  recommendedCards.forEach(element => {
+  const titles = handlersObj.titlesGif;
+  for (let i = 0; i < recommendedCards.length; i++) {
+    const element = recommendedCards[i];
     const indexRandom = Math.floor(Math.random() * limitGifs);
     const input = recommendedTitles[indexRandom];
-    console.log(input);
-    const gifObject = getSearchGifs(input, 1);
-   if (!counter.includes(indexRandom)) {
+    titles[i].textContent = `#${input} GIF`;
+    const gifObject = getRandomGifs(input);
       gifObject
-      .then(obj => obj[0])
+      .then(obj => obj.data)
       .then(data => {
         const url = data.images.downsized.url;
         element.setAttribute("src", url);
-        counter.push(indexRandom);
-      }); 
-    }
-  });
-  };
+      });
+    };
+  }
 
-
-function printTitles(title) {
-  const gifTitles = handlersObj.titlesGif;
-  const titulo = title;
-  gifTitles.forEach(element => {
-    const gifTitle = element;
-    gifTitle.textContent = titulo;
-  });
-}
 
 function printSearchGifs() {
   const searchGifs = handlersObj.searchCards;
@@ -61,7 +48,6 @@ function printTrendingGifs() {
       var src = data[i].images.downsized.url;
       var elemento = trending[i];
       var img = document.createElement("img");
-      printTitles("Div");
       img.setAttribute("src", src);
       elemento.insertAdjacentElement("afterbegin", img);
     }
@@ -103,15 +89,31 @@ function mostrarOcultar() {
   }
 }
 
-///////////////////////////////////////////////////////////////////
-/////////// FUNCION CREADA PARA CORTAR EL TÍTULO QUE TRAEN LOS GIFS
-
-// function createTitle(title) {
-//   var result = [];
-//   var newTitle = title.split(' ');
-//   for (let i = 0; i < 3; i++) {
-//     const element = newTitle[i];
-//     result.push(element);
-//   }
-//   return result.toString();
-// }
+function switchSearchStyle(e){
+  const suggestedBar = handlersObj.searchSuggested;
+  const suggestedButtons = handlersObj.suggetedButtons;
+  const button = handlersObj.searchBtn;
+  const img = handlersObj.searchImg;
+  let inputValue = e.target.value;
+  if (inputValue.length >= 1){
+  suggestedBar.style.display = 'flex';
+  button.style.background = '#F7C9F3';
+  button.style.color = '#110038';
+  img.setAttribute('src', '/images/lupa.svg');
+  let autocomplete = autocompleteSearch(inputValue);
+  autocomplete
+  .then(obj => obj.data)
+  .then(data => {
+    for (let i = 0; i < suggestedButtons.length; i++) {
+      const element = suggestedButtons[i];
+      const value = data[i].name;
+      element.textContent = value;
+    }
+  })
+  } else {
+    suggestedBar.style.display = 'none';
+    button.style.background = '#E6E6E6';
+    button.style.color = '#B4B4B4';
+    img.setAttribute('src', '/images/lupa_inactive.svg')
+  }
+}

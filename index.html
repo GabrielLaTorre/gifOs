@@ -43,12 +43,14 @@
             <p>Buscar</p>
             <input type="text" min="3" max="20" autocomplete="off" id="input" placeholder="Busca gifs, hashtags, temas, busca lo que quieras..."/>
             <button id="search-btn">
-              <img id="search-img" src="images/lupa_inactive.svg" alt="lupa_inactive" /> Buscar
+              <span>
+                <img id="search-img" src="images/lupa_inactive.svg" alt="lupa_inactive" /> Buscar
+              </span>
             </button>
-            <div class="search-options">
-              <div><button id="opt-1">uno</button></div>
-              <div><button id="opt-2">dos</button></div>
-              <div><button id="opt-3">tres</button></div>
+            <div id="search-options">
+              <div><button class="option-button"></button></div>
+              <div><button class="option-button"></button></div>
+              <div><button class="option-button"></button></div>
             </div>
           </div>
         </nav>

@@ -1,5 +1,4 @@
-import {handlersObj} from './handlers.js';
-export {getTrendingGifs, getRandomGifs, getSearchGifs};
+export {getTrendingGifs, getRandomGifs, getSearchGifs, autocompleteSearch};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
@@ -14,17 +13,13 @@ function getTrendingGifs() {
      return found;
    }
 
-   function getRandomGifs() {
-    handlersObj.randomCards.forEach(element => {
-    fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=&rating=G`)
+   function getRandomGifs(input) {
+    const found =
+    fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}&tag=${input}&rating=G`)
     .then(response => response.json())
-    .then(content => {
-      let {data:{images:{downsized:{url}}}} = content;
-      let img = element;
-      img.setAttribute('src', url);
-    })
+    .then(content => content)
     .catch(err => console.log(err))
-    })
+    return found;
 }
 
 
@@ -36,5 +31,13 @@ function getSearchGifs(input, limit) {
     return data;
   })
   .catch(err => console.log(err))
+  return found;
+}
+
+function autocompleteSearch(input){
+  const found = fetch(`https:api.giphy.com/v1/gifs/search/tags?q=${input}&api_key=lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw&limit=3`)
+  .then(data => data.json())
+  .then(content => {return content})
+  .catch(e => console.log(e))
   return found;
 }

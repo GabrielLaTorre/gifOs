@@ -5,21 +5,32 @@ export const handlersObj = {
 
     handlerUl: document.getElementById("handler-ul"),
     searchInput: document.getElementById("input"),
+    searchSuggested: document.getElementById('search-options'),
+    suggetedButtons:[],
     randomCards: [],
     titlesGif: [],
     searchCards: [],
     trendCards: document.getElementsByClassName("trend-card"), 
     recommendedTopics: [
         'Deadpool',
-        'Pikachu',
-        'Sailor Moon',
-        'lol',
+        'Pokemon',
+        'SailorMoon',
+        'LOL',
         'Naruto',
-        'Boca Juniors',
+        'CSI',
         'Developer',
         'Kiss',
         'Rock',
-        'Game',
+        'Videogame',
+        'Alone',
+        'Sad',
+        'Friends',
+        'PornFood',
+        'Holywood',
+        'Terminator',
+        'Surprise',
+        'Football',
+        'NBA'
       ]
 }
 
@@ -41,3 +52,10 @@ for (let i = 0; i < elements.length; i++) {
     handlersObj.searchCards.push(element);
 }
 
+var buttons = document.getElementsByClassName('option-button');
+for (let i = 0; i < buttons.length; i++) {
+    const element = buttons[i];
+    handlersObj.suggetedButtons.push(element);
+}
+
+console.log(handlersObj.suggetedButtons);

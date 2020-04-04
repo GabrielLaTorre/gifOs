@@ -80,22 +80,17 @@ body {
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-#input:in-range + button {
-    background: #F7C9F3;
-    border: 1px solid #110038;
-    color: #110038;
-    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
-}
-
-#input:required ~ div {
-    display: flex;
+#search-btn:focus > span {
+    padding: 4px 8px;
+    margin-left: -4px;
+    border: 1px dotted #110038;
 }
 
 #input:focus {
     color: #110038;
 }
 
-.search-options {
+#search-options {
     position: absolute;
     z-index: 5;
     top: 234px;
@@ -108,7 +103,7 @@ body {
     box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 
-.search-options > div {
+#search-options > div {
     width: 87%;
     height: 36px;
     margin-left: 15px;
@@ -117,7 +112,7 @@ body {
     box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.search-options button {
+#search-options button {
     margin-top: 2px;
     margin-left: 2px;
     padding-right: 990px;
@@ -128,7 +123,7 @@ body {
 }
 
 
-.search-options button:hover {
+#search-options button:hover {
     border: 1px dotted black;
     background: #dadada;
 }
