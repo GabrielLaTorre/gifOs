@@ -57,5 +57,3 @@ for (let i = 0; i < buttons.length; i++) {
     const element = buttons[i];
     handlersObj.suggetedButtons.push(element);
 }
-
-console.log(handlersObj.suggetedButtons);

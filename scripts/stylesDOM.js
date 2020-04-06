@@ -1,6 +1,6 @@
 import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch} from "./api.js";
 import { handlersObj } from "./handlers.js";
-export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle };
+export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle, printSearchGifsBtn};
 
 function printRecommendedGifs() { 
   const recommendedTitles = handlersObj.recommendedTopics;
@@ -90,6 +90,7 @@ function mostrarOcultar() {
 }
 
 function switchSearchStyle(e){
+  console.log(e.eventPhase);
   const suggestedBar = handlersObj.searchSuggested;
   const suggestedButtons = handlersObj.suggetedButtons;
   const button = handlersObj.searchBtn;
@@ -116,4 +117,22 @@ function switchSearchStyle(e){
     button.style.color = '#B4B4B4';
     img.setAttribute('src', '/images/lupa_inactive.svg')
   }
+}
+
+function printSearchGifsBtn(e) {
+  const input = e.target.textContent;
+  console.log(input);
+  const searchGifs = handlersObj.searchCards;
+  const limit = handlersObj.searchCards.length;
+  handlersObj.searchSection.style = "display: block";
+  const gifData = getSearchGifs(input, limit);
+  gifData.then(gifObject => {
+    for (let i = 0; i < searchGifs.length; i++) {
+      const element = searchGifs[i];
+      const src = gifObject[i].images.downsized.url;
+      const img = document.createElement("img");
+      img.setAttribute("src", src);
+      element.insertAdjacentElement("afterbegin", img);
+    }
+  });
 }
