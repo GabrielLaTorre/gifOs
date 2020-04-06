@@ -7,10 +7,6 @@ function init() {
   handlersObj.handlerUl.addEventListener("click", mostrarOcultar);
   handlersObj.searchBtn.addEventListener('click', printSearchGifs);
   handlersObj.searchInput.addEventListener('input', switchSearchStyle)
-  handlersObj.searchInput.addEventListener('blur', (e)=>{
-    console.log(e.cancelable);
-    handlersObj.searchSuggested.style.display = "none";
-  })
   handlersObj.suggetedButtons.forEach(btn => {
     const element = btn;
     element.addEventListener('click', printSearchGifsBtn);

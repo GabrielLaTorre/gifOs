@@ -90,7 +90,6 @@ function mostrarOcultar() {
 }
 
 function switchSearchStyle(e){
-  console.log(e.eventPhase);
   const suggestedBar = handlersObj.searchSuggested;
   const suggestedButtons = handlersObj.suggetedButtons;
   const button = handlersObj.searchBtn;
