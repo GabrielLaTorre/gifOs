@@ -24,8 +24,10 @@ function printRecommendedGifs() {
 
 
 function printSearchGifs() {
+  cleanSearchGifs();
   const searchGifs = handlersObj.searchCards;
   const input = handlersObj.searchInput.value;
+  const suggestedBar = handlersObj.searchSuggested;
   const limit = handlersObj.searchCards.length;
   handlersObj.searchSection.style = "display: block";
   const gifData = getSearchGifs(input, limit);
@@ -38,6 +40,8 @@ function printSearchGifs() {
       element.insertAdjacentElement("afterbegin", img);
     }
   });
+  suggestedBar.style.display = 'none';
+  searchActive();
 }
 
 function printTrendingGifs() {
@@ -119,8 +123,8 @@ function switchSearchStyle(e){
 }
 
 function printSearchGifsBtn(e) {
+  cleanSearchGifs();
   const input = e.target.textContent;
-  console.log(input);
   const searchGifs = handlersObj.searchCards;
   const limit = handlersObj.searchCards.length;
   handlersObj.searchSection.style = "display: block";
@@ -134,4 +138,23 @@ function printSearchGifsBtn(e) {
       element.insertAdjacentElement("afterbegin", img);
     }
   });
+}
+
+function cleanSearchGifs(){
+  const searchGifs = handlersObj.searchCards;
+  for (let i = 0; i < searchGifs.length; i++) {
+    const element = searchGifs[i];
+    while(element.firstChild){
+      element.removeChild(element.firstChild);
+    }
+  }
+}
+
+function searchActive(){
+  const btn = handlersObj.searchBtn;
+  const input = handlersObj.searchInput;
+  const focused = btn.focus();
+  if(focused) {
+    input.style.background = '#000';
+  }
 }
