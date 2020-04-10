@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link id="style" rel="stylesheet" href="/styles/day.css" />
-    <script
-      src="https://kit.fontawesome.com/6806ec9b7c.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="/scripts/index.js" type="module"></script>
     <title>Document</title>
   </head>
@@ -22,8 +18,7 @@
       <header>
         <nav>
           <div class="nav-top">
-            <img id="logo" src="images/logo.png" alt="logo" />
-
+            <a href="index.html"><img id="logo" src="images/logo.png" alt="logo" /></a>
             <div class="nav-rigth">
               <button class="btn-pink">
                <span id="create-spn">Crear Guifos</span>
@@ -57,7 +52,12 @@
       </header>
       <main>
         <section id="search-results">
-          <p class="title">Resultados de búsqueda:</p>
+          <div class="search-tags">
+            <button class="btn-tag"><span class="spn-tag"></span></button>
+            <button class="btn-tag"><span class="spn-tag"></span></button>
+            <button class="btn-tag"><span class="spn-tag"></span></button>
+          </div>
+          <p class="title" id="search-title"></p>
           <div class="contenedor">
             <div class="search-card"></div>
             <div class="search-card"></div>

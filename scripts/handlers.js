@@ -2,15 +2,18 @@ export const handlersObj = {
     searchBtn: document.getElementById("search-btn"),
     searchSection: document.getElementById("search-results"),
     searchImg: document.getElementById('search-img'),
-
-    handlerUl: document.getElementById("handler-ul"),
     searchInput: document.getElementById("input"),
     searchSuggested: document.getElementById('search-options'),
+    searchTitle: document.getElementById('search-title'),
     suggetedButtons:[],
+    suggestedTags: [],
+
+    handlerUl: document.getElementById("handler-ul"),
     randomCards: [],
     titlesGif: [],
     searchCards: [],
     trendCards: document.getElementsByClassName("trend-card"), 
+    recommendedSection: document.getElementById('recommended'),
     recommendedTopics: [
         'Deadpool',
         'Pokemon',
@@ -56,4 +59,10 @@ var buttons = document.getElementsByClassName('option-button');
 for (let i = 0; i < buttons.length; i++) {
     const element = buttons[i];
     handlersObj.suggetedButtons.push(element);
+}
+
+var tags = document.getElementsByClassName('spn-tag');
+for (let i = 0; i < tags.length; i++) {
+    const element = tags[i];
+    handlersObj.suggestedTags.push(element);
 }

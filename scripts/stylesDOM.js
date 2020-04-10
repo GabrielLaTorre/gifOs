@@ -1,4 +1,4 @@
-import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch} from "./api.js";
+import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch, getSearchSuggestions} from "./api.js";
 import { handlersObj } from "./handlers.js";
 export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle, printSearchGifsBtn};
 
@@ -25,11 +25,15 @@ function printRecommendedGifs() {
 
 function printSearchGifs() {
   cleanSearchGifs();
+  const searchTitle = handlersObj.searchTitle;
+  const recommendedSection = handlersObj.recommendedSection;
   const searchGifs = handlersObj.searchCards;
   const input = handlersObj.searchInput.value;
   const suggestedBar = handlersObj.searchSuggested;
   const limit = handlersObj.searchCards.length;
-  handlersObj.searchSection.style = "display: block";
+  handlersObj.searchSection.style.display = "block";
+  recommendedSection.style.display = 'none';
+  searchTitle.innerText = `${input} (resultados)`;
   const gifData = getSearchGifs(input, limit);
   gifData.then(gifObject => {
     for (let i = 0; i < searchGifs.length; i++) {
@@ -40,8 +44,8 @@ function printSearchGifs() {
       element.insertAdjacentElement("afterbegin", img);
     }
   });
+  printTagsButton(input);
   suggestedBar.style.display = 'none';
-  searchActive();
 }
 
 function printTrendingGifs() {
@@ -124,10 +128,15 @@ function switchSearchStyle(e){
 
 function printSearchGifsBtn(e) {
   cleanSearchGifs();
+  const searchTitle = handlersObj.searchTitle;
+  const suggestedBar = handlersObj.searchSuggested;
+  const recommendedSection = handlersObj.recommendedSection;
   const input = e.target.textContent;
   const searchGifs = handlersObj.searchCards;
   const limit = handlersObj.searchCards.length;
-  handlersObj.searchSection.style = "display: block";
+  recommendedSection.style.display = 'none';
+  handlersObj.searchSection.style.display = "block";
+  searchTitle.innerText = `${input} (resultados)`;
   const gifData = getSearchGifs(input, limit);
   gifData.then(gifObject => {
     for (let i = 0; i < searchGifs.length; i++) {
@@ -138,6 +147,8 @@ function printSearchGifsBtn(e) {
       element.insertAdjacentElement("afterbegin", img);
     }
   });
+  printTagsButton(input);
+  suggestedBar.style.display = 'none';
 }
 
 function cleanSearchGifs(){
@@ -150,11 +161,13 @@ function cleanSearchGifs(){
   }
 }
 
-function searchActive(){
-  const btn = handlersObj.searchBtn;
-  const input = handlersObj.searchInput;
-  const focused = btn.focus();
-  if(focused) {
-    input.style.background = '#000';
-  }
+function printTagsButton(input){
+  const tags = handlersObj.suggestedTags;
+  const topic = getSearchSuggestions(input);
+  topic.then(data => {
+    for (let i = 0; i < tags.length; i++) {
+      const element = tags[i];
+      element.innerText = `#${data[i].name}`;
+    }
+  })
 }
