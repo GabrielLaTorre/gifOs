@@ -129,7 +129,8 @@ body {
 }
 
 .btn-tag {
-    padding: 5px;
+    padding: 6px;
+    display: none;
     margin-top: 10px;
     margin-bottom: -20px;
     width: max-content;
@@ -143,11 +144,6 @@ body {
 .btn-tag:hover {
     cursor: pointer;
     background: #3A72DB;
-}
-
-.btn-tag:hover > span {
-    padding: 5px 8px;
-    border: 1px dotted #000;
 }
 
 .nav-down button:hover {

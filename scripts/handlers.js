@@ -7,6 +7,8 @@ export const handlersObj = {
     searchTitle: document.getElementById('search-title'),
     suggetedButtons:[],
     suggestedTags: [],
+    tagButtons: [],
+    moreResultsBtn: [],
 
     handlerUl: document.getElementById("handler-ul"),
     randomCards: [],
@@ -65,4 +67,16 @@ var tags = document.getElementsByClassName('spn-tag');
 for (let i = 0; i < tags.length; i++) {
     const element = tags[i];
     handlersObj.suggestedTags.push(element);
+}
+
+var tagButton = document.getElementsByClassName('btn-tag');
+for (let i = 0; i < tagButton.length; i++) {
+    const element = tagButton[i];
+    handlersObj.tagButtons.push(element);
+}
+
+var moreBtns = document.getElementsByClassName('btn-more');
+for (let i = 0; i < moreBtns.length; i++) {
+    const element = moreBtns[i];
+    handlersObj.moreResultsBtn.push(element);
 }

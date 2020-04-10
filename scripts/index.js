@@ -1,5 +1,5 @@
 import {handlersObj} from './handlers.js'
-import {mostrarOcultar, printTrendingGifs, printSearchGifs, printRecommendedGifs, switchSearchStyle, printSearchGifsBtn} from './stylesDOM.js';
+import {mostrarOcultar, printTrendingGifs, printSearchGifs, printRecommendedGifs, switchSearchStyle, printSearchSuggested} from './stylesDOM.js';
 
 document.addEventListener("DOMContentLoaded", init);
 
@@ -9,7 +9,7 @@ function init() {
   handlersObj.searchInput.addEventListener('input', switchSearchStyle)
   handlersObj.suggetedButtons.forEach(btn => {
     const element = btn;
-    element.addEventListener('click', printSearchGifsBtn);
+    element.addEventListener('click', printSearchSuggested);
   })
   printTrendingGifs();
   printRecommendedGifs();
