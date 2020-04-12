@@ -129,6 +129,24 @@ body {
     border: 1px dotted black;
 }
 
+.btn-tag {
+    padding: 6px;
+    display: none;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    width: max-content;
+    height: 34px;
+    color: #FFFFFF;
+    background: #2E32FB;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -1px -1px 0 0 #2124B3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.btn-tag:hover {
+    cursor: pointer;
+    background: #110038;
+}
+
 .input-bar > button:hover {
     border: 1px dotted black;
 }
@@ -335,6 +353,29 @@ body {
     left: 275px;
     bottom: 155px;
     z-index: 2;
+}
+
+.btn-more {
+    width: 81px;
+    height: 34px;
+    padding: 0;
+    color: #FFFFFF;
+    background: #2E32FB;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -1px -1px 0 0 #2124B3, inset 1px 1px 0 0 #FFFFFF;
+    position: relative;
+    bottom: 54px;
+    left: 10px;
+}
+
+.btn-more:hover {
+    cursor: pointer;
+    background: #110038;
+}
+
+.btn-more:hover > span {
+    border: 1px dotted #000;
+    padding: 5px 8px;
 }
 
 .contenedor {
