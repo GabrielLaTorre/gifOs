@@ -377,21 +377,60 @@ body {
     height: 950px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 295px 295px 295px;
     grid-gap: 16px;
 }
 
-.gif-a {
+#gif-a {
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
-.gif-b {
+#gif-a div {
+    width: 577px;
+}
+
+#gif-b {
     grid-column-start: 3;
     grid-column-end: 5;
 }
 
+#gif-b div {
+    width: 577px;
+}
+
 .trend-card img, .search-card img{
     width: 100%;
-    height: 300px;
+    height: 100%;
+}
+
+.trend-card {
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+.trend-card:hover {
+    padding: 3px;
+}
+
+.trend-card div {
+    display: none;
+    position: relative;
+    bottom: 30px;
+    left: 1px;
+    width: 276px;
+    padding: 3px;
+    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+
+.trend-card:hover img {
+    border: 1px dotted #000000;
+}
+
+.trend-card:hover div {
+    display: block;
 }
