@@ -51,15 +51,25 @@ function printSearchGifs() {
 }
 
 function printTrendingGifs() {
-  const trending = handlersObj.trendCards;
+  const trendingCards = handlersObj.trendCards;
   const trendingObj = getTrendingGifs();
   trendingObj.then(data => {
-    for (let i = 0; i < trending.length; i++) {
-      var src = data[i].images.downsized.url;
-      var elemento = trending[i];
-      var img = document.createElement("img");
+    for (let i = 0; i < trendingCards.length; i++) {
+      const src = data[i].images.downsized.url;
+      const title = data[i].title;
+      const tagsArr = title.split(' ', 4);
+      const elemento = trendingCards[i];
+      const tagDiv = elemento.getElementsByTagName('div')[0];
+      const img = document.createElement("img");
       img.setAttribute("src", src);
       elemento.insertAdjacentElement("afterbegin", img);
+      tagsArr.forEach(element => {
+          const tag = element;
+          const tagSpn = document.createElement('span');
+          tagSpn.textContent = `#${tag} `;
+          tagDiv.insertAdjacentElement('beforeend', tagSpn);
+      }
+    )
     }
   });
 }
