@@ -156,7 +156,7 @@ body {
     display: flex;
 }
 
-.nav-rigth a {
+.mis-guifos {
     height: 32px;
     margin-left: 8px;
     padding-top: 5px;
@@ -172,7 +172,7 @@ body {
     border: 0.5px dotted black;
 }
 
-.nav-rigth a:active {
+.mis-guifos:active {
     color: #8b8b8b;
 }
 
@@ -201,11 +201,11 @@ body {
     cursor: pointer;
 }
 
-.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover > span {
+.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover span {
     border: 1px dotted black;
 }
 
-.test:active >.btn-pink > span, .test:active img, .btn-pink:active > span {
+.test:active >.btn-pink > span, .test:active img, .btn-pink:active span {
     border: 1px dotted black;
 }
 
@@ -233,10 +233,15 @@ body {
     font-size: 16px;
     width: 144px;
     height: 36px;
-    color: black;
     background: #F7C9F3;
+    color: black;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.btn-pink a {
+    text-decoration: none;
+    color: black;
 }
 
 #create-spn {
@@ -336,6 +341,7 @@ body {
 .rec-div p {
     padding-top: 3px;
     padding-left: 5px;
+    margin-bottom: 1px;
     height: 24px;
     font-weight: bold;
     font-size: 14px;
@@ -423,7 +429,7 @@ body {
     left: 1px;
     width: 276px;
     padding: 3px;
-    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180f6 100%);
     font-size: 14px;
     font-weight: bold;
     color: #FFFFFF;

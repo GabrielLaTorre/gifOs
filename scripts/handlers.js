@@ -1,4 +1,5 @@
 export const handlersObj = {
+    stylesSheet: [],
     searchBtn: document.getElementById("search-btn"),
     searchSection: document.getElementById("search-results"),
     searchImg: document.getElementById('search-img'),
@@ -79,4 +80,10 @@ var moreBtns = document.getElementsByClassName('btn-more');
 for (let i = 0; i < moreBtns.length; i++) {
     const element = moreBtns[i];
     handlersObj.moreResultsBtn.push(element);
+}
+
+var styles = document.getElementsByClassName('style');
+for (let i = 0; i < styles.length; i++) {
+    const element = styles[i];
+    handlersObj.stylesSheet.push(element);
 }

@@ -206,11 +206,11 @@ body {
     cursor: pointer;
 }
 
-.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover > span {
+.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover span {
     border: 1px dotted black;
 }
 
-.test:active >.btn-pink > span, .test:active img, .btn-pink:active > span {
+.test:active >.btn-pink > span, .test:active img, .btn-pink:active span {
     border: 1px dotted black;
 }
 
@@ -242,6 +242,11 @@ body {
     background: #EE3EFE;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.btn-pink a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 #create-spn {
@@ -342,6 +347,7 @@ body {
 .rec-div p {
     padding-top: 3px;
     padding-left: 5px;
+    margin-bottom: 1px;
     height: 24px;
     font-weight: bold;
     font-size: 14px;

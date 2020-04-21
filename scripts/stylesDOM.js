@@ -75,22 +75,30 @@ function printTrendingGifs() {
 }
 
 function switchTeme(e) {
-  let night = "/styles/night.css";
-  let light = "/styles/day.css";
-  let arrow = document.getElementById("arrow");
-  let theme = document.getElementById("style");
+  const themes = handlersObj.stylesSheet;
+  console.log(themes);
+  const night = "/styles/night.css";
+  const light = "/styles/day.css";
+  const arrow = document.getElementById("arrow");
+  const theme = document.getElementById("style");
+  const logo = document.getElementById("logo");
   if (e.target.id == "day") {
-    let logo = document.getElementById("logo");
-    handlersObj.searchImg.setAttribute("src", "/images/lupa_inactive.svg");
+    localStorage.setItem('theme', 'day');
+    themes.forEach(element => {
+      element.setAttribute('href', light);
+    })
     logo.setAttribute("src", "/images/logo.png");
     arrow.setAttribute("src", "/images/dropdown.svg");
-    theme.setAttribute("href", light);
+    handlersObj.searchImg.setAttribute("src", "/images/lupa_inactive.svg");
   } else if (e.target.id == "night") {
-    let logo = document.getElementById("logo");
-    handlersObj.searchImg.setAttribute("src", "/images/lupa_gray.svg");
+    localStorage.setItem('theme', 'night');
+    themes.forEach(element => {
+      element.setAttribute('href', night);
+    })
     logo.setAttribute("src", "/images/logo_dark.png");
     arrow.setAttribute("src", "/images/whitedown.svg");
-    theme.setAttribute("href", night);
+    handlersObj.searchImg.setAttribute("src", "/images/lupa_gray.svg");
+    
   }
 }
 
@@ -100,8 +108,8 @@ function mostrarOcultar() {
   let oculto = document.getElementById("oculto");
   if (oculto.style.display == "none") {
     oculto.style.display = "flex";
-    var them1 = document.getElementById("day");
-    var them2 = document.getElementById("night");
+    const them1 = document.getElementById("day");
+    const them2 = document.getElementById("night");
     them1.addEventListener("click", switchTeme);
     them2.addEventListener("click", switchTeme);
   } else {
