@@ -75,29 +75,23 @@ function printTrendingGifs() {
 }
 
 function switchTeme(e) {
-  const themes = handlersObj.stylesSheet;
-  console.log(themes);
   const night = "/styles/night.css";
   const light = "/styles/day.css";
   const arrow = document.getElementById("arrow");
   const theme = document.getElementById("style");
   const logo = document.getElementById("logo");
   if (e.target.id == "day") {
-    localStorage.setItem('theme', 'day');
-    themes.forEach(element => {
-      element.setAttribute('href', light);
-    })
+    theme.setAttribute('href', light);
     logo.setAttribute("src", "/images/logo.png");
     arrow.setAttribute("src", "/images/dropdown.svg");
     handlersObj.searchImg.setAttribute("src", "/images/lupa_inactive.svg");
+    sessionStorage.setItem('theme', theme.getAttribute('href'));
   } else if (e.target.id == "night") {
-    localStorage.setItem('theme', 'night');
-    themes.forEach(element => {
-      element.setAttribute('href', night);
-    })
+    theme.setAttribute('href', night);
     logo.setAttribute("src", "/images/logo_dark.png");
     arrow.setAttribute("src", "/images/whitedown.svg");
     handlersObj.searchImg.setAttribute("src", "/images/lupa_gray.svg");
+    sessionStorage.setItem('theme', theme.getAttribute('href'));
     
   }
 }

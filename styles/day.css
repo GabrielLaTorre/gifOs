@@ -443,3 +443,77 @@ body {
 .trend-card:hover div {
     display: block;
 }
+
+/* SUBIR GIFOS ############################################# */
+
+#mediaFigure {
+    width: 50%;
+    margin: 0 auto;
+    background: #E6E6E6;
+    box-shadow: 1px 1px 0px 1px #B4B4B4, 0px 0px 0px 2px #FFFFFF;
+}
+
+
+#mediaTitle {
+    width: 100%;
+    background-image: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    padding: 2px 7px;
+}
+
+#mediaContent {
+    padding: 35px;
+}
+
+#mediaContent > img {
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+#mediaContent > p {
+    display: inline;
+    font-weight: bold;
+    font-size: 16px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+#mediaContent li {
+    margin-top: 10px;
+    list-style: none;
+    font-size: 14px;
+    color: #110038;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+
+#mediaContent li > span {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.btn-white {
+    font-size: 16px;
+    width: 144px;
+    height: 36px;
+    background: #FFF4FD;
+    color: black;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.btn-white:hover {
+    cursor: pointer;
+    background: rgb(233, 224, 231);
+}
+
+.initMedia {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 36px;
+}

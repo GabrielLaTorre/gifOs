@@ -1,3 +1,9 @@
-const local = localStorage.getItem('theme')
+const sessionStyle = sessionStorage.getItem('theme')
 
-console.log(local);
+function switchTeme(style) {
+    const theme = document.getElementById("style2");
+    const logo = document.getElementById("logo");
+    theme.setAttribute('href', style);
+  }
+
+  switchTeme(sessionStyle);
