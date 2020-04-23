@@ -505,6 +505,8 @@ body {
     color: black;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    grid-column: 2/3;
+    justify-self: center;
 }
 
 .btn-white:hover {
@@ -513,7 +515,8 @@ body {
 }
 
 .initMedia {
-    display: flex;
+    display: grid;
     justify-content: space-around;
     padding-bottom: 36px;
+    grid-template-columns: repeat(3, 1fr);
 }
