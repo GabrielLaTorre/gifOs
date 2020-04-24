@@ -23,11 +23,11 @@
                   <section id="captureSec">
                     <figure id="mediaFigure">
                         <figcaption id="mediaTitle">Crear Guifos</figcaption>
-                        <div id="mediaContent">
+                        <div id="mediaContent" class="">
                             <img src="images/window img.png" alt="window.jpg">
                             <strong> Aquí podras crear tus propios gifos </strong>
                             <ul>
-                                <li>Crear tu <span>guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos
+                                <li>Crear tu <span>guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos <br>
                                 personalizados. Los pasos para crear tu guifo son:</li>
                                 <li><strong>1)</strong> Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
                                 <li><strong>2)</strong> Capturar tu momento guifo</li>
@@ -36,9 +36,17 @@
                                 <li>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</li>
                             </ul>
                         </div>
-                        <div id="btnContent" class="initMedia">
-                            <button class="btn-white">Cancelar</button>
-                            <button class="btn-pink">Comenzar</button>
+                        <video src="" id="checkVideo" class="videoScreen hidden"></video>
+
+                        <!-- ||||||||||| División |||||||||||| -->
+
+                        <div id="initBar" class="initBar">
+                            <button id="cancelBtn" class="btn-white"><span>Cancelar</span></button>
+                            <button id="readyBtn" class="btn-pink"><span>Comenzar</span></button>
+                        </div>
+                        <div id="captureBar" class="btnImgDiv hidden">
+                            <div id="captureImg" class="btnImg"><img id="cameraImg" src="/images/camera.svg" alt=""></div>
+                            <button id="captureBtn" class="btn-pink"><span>Capturar</span></button>
                         </div>
                     </figure>
                   </section>

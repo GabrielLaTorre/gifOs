@@ -189,36 +189,35 @@ body {
     border-bottom: 1px solid #FFFFFF;;
 }
 
-.test {
+.btnImgDiv {
     display: flex;
-    height: 36px;
 }
 
-.btn-pink:hover, .test:hover button, .test:hover img {
+.btn-pink:hover, .btnImgDiv:hover button, .btnImgDiv:hover img {
     background: #CE36DB;
 }
 
-.btn-pink:active, .test:active button, .test:active img {
+.btn-pink:active, .btnImgDiv:active button, .btnImgDiv:active img {
     background: #CE36DB;
 }
 
-.test:hover, .btn-pink:hover {
+.btnImgDiv:hover, .btn-pink:hover {
     cursor: pointer;
 }
 
-.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover span {
+.btnImgDiv:hover >.btn-pink > span, .btnImgDiv:hover img, .btn-pink:hover span {
     border: 1px dotted black;
 }
 
-.test:active >.btn-pink > span, .test:active img, .btn-pink:active span {
+.btnImgDiv:active >.btn-pink > span, .btnImgDiv:active img, .btn-pink:active span {
     border: 1px dotted black;
 }
 
-.test button {
+.btnImgDiv button {
     width: 130px;
 }
 
-#handler-ul {
+.btnImg {
     width: 36px;
     height: 36px;
     background: #EE3EFE;
@@ -226,7 +225,7 @@ body {
     box-shadow: inset -1px -1px 0 0 #A72CB3, inset 1px 1px 0 0 #FFFFFF;
 }
 
-#handler-ul img {
+.btnImg img {
     position: relative;
     top: 2px;
     left: 1px;
@@ -249,7 +248,7 @@ body {
     color: #ffffff;
 }
 
-#create-spn {
+#dottedSpan {
     padding: 4px 23px;
 }
 

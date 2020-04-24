@@ -184,36 +184,35 @@ body {
     border-bottom: 1px solid #110038;
 }
 
-.test {
+.btnImgDiv {
     display: flex;
-    height: 36px;
 }
 
-.btn-pink:hover, .test:hover button, .test:hover img {
+.btn-pink:hover, .btnImgDiv:hover button, .btnImgDiv:hover img {
     background: #E6BBE2;
 }
 
-.btn-pink:active, .test:active button, .test:active img {
+.btn-pink:active, .btnImgDiv:active button, .btnImgDiv:active img {
     background: #E6BBE2;
 }
 
-.test:hover, .btn-pink:hover {
+.btnImgDiv:hover, .btn-pink:hover {
     cursor: pointer;
 }
 
-.test:hover >.btn-pink > span, .test:hover img, .btn-pink:hover span {
+.btnImgDiv:hover >.btn-pink > span, .btnImgDiv:hover img, .btn-pink:hover span {
     border: 1px dotted black;
 }
 
-.test:active >.btn-pink > span, .test:active img, .btn-pink:active span {
+.btnImgDiv:active >.btn-pink > span, .btnImgDiv:active img, .btn-pink:active span {
     border: 1px dotted black;
 }
 
-.test button {
+.btnImgDiv button {
     width: 130px;
 }
 
-#handler-ul {
+.btnImg {
     width: 36px;
     height: 36px;
     background: #F7C9F3;
@@ -221,7 +220,7 @@ body {
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
 }
 
-#handler-ul img {
+.btnImg img {
     position: relative;
     top: 2px;
     left: 1px;
@@ -244,7 +243,7 @@ body {
     color: black;
 }
 
-#create-spn {
+#dottedSpan {
     padding: 4px 23px;
 }
 
@@ -496,6 +495,7 @@ body {
 }
 
 .btn-white {
+    padding: 0;
     font-size: 16px;
     width: 144px;
     height: 36px;
@@ -507,14 +507,57 @@ body {
     justify-self: flex-start;
 }
 
+.btn-white span {
+    padding: 4px 36px;
+}
+
 .btn-white:hover {
     cursor: pointer;
     background: rgb(233, 224, 231);
 }
 
-.initMedia {
+.btn-white:hover > span {
+    border: 1px dotted #000000;
+}
+
+#readyBtn {
+    justify-self: flex-end;
+}
+
+#readyBtn span {
+    padding: 4px 31px;
+}
+
+.initBar {
+    width: 600px;
+    margin: 0 auto;
     display: grid;
     justify-content: space-around;
     padding-bottom: 36px;
     grid-template-columns: repeat(4, 1fr);
+}
+
+.hidden {
+    display: none;
+}
+
+.videoScreen {
+    width: 830px;
+    margin: 5px;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+#captureBar {
+    padding: 15px;
+    justify-content: flex-end;
+}
+
+#cameraImg {
+    padding: 6px;
+}
+
+#captureBtn > span {
+    padding: 4px 29px;
 }
