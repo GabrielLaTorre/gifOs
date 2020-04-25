@@ -17,6 +17,7 @@ function printRecommendedGifs() {
       gifObject
       .then(obj => obj.data)
       .then(data => {
+        console.log(data);
         const url = data.images.downsized.url;
         element.setAttribute("src", url);
       });

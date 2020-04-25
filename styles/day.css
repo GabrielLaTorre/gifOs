@@ -446,7 +446,7 @@ body {
 /* SUBIR GIFOS ############################################# */
 
 #mediaFigure {
-    width: 55%;
+    width: fit-content;
     margin: 0 auto;
     background: #E6E6E6;
     box-shadow: 1px 1px 0px 1px #B4B4B4, 0px 0px 0px 2px #FFFFFF;
@@ -464,7 +464,7 @@ body {
 }
 
 #mediaContent {
-    padding: 25px;
+    padding: 20px 35px;
 }
 
 #mediaContent > img {
@@ -504,7 +504,7 @@ body {
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
     grid-column: 3/4;
-    justify-self: flex-start;
+    justify-self: center;
 }
 
 .btn-white span {
@@ -521,7 +521,7 @@ body {
 }
 
 #readyBtn {
-    justify-self: flex-end;
+    justify-self: flex-start;
 }
 
 #readyBtn span {
@@ -529,7 +529,7 @@ body {
 }
 
 .initBar {
-    width: 600px;
+    width: 680px;
     margin: 0 auto;
     display: grid;
     justify-content: space-around;
