@@ -445,6 +445,11 @@ body {
 
 /* SUBIR GIFOS ############################################# */
 
+#captureSec {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
 #mediaFigure {
     width: fit-content;
     margin: 0 auto;
@@ -550,6 +555,8 @@ body {
 }
 
 #captureBar {
+    width: fit-content;
+    margin-left: auto;
     padding: 15px;
     justify-content: flex-end;
 }
@@ -561,3 +568,61 @@ body {
 #captureBtn > span {
     padding: 4px 29px;
 }
+
+#recordBar {
+    height: 60px;
+}
+
+#timerDiv {
+    margin: 10px;
+    display: inline-block;
+    width: fit-content;
+    background: #FFFFFF;
+    border: 1px solid #979797;
+    padding: 7px 17px;
+    box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+#recordDiv {
+    position: relative;
+    top: 6px;
+    left: 495px;
+    height: 36px;
+    display: inline-flex;
+}
+
+#recordDiv:hover, #recordBtn:hover {
+    cursor: pointer;
+}
+
+#recordDiv:hover img, #recordDiv:hover span, #recordBtn:hover span {
+    border: 1px dotted #ffffff;
+}
+
+#recordBtn {
+    padding: 0;
+    width: 144px;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+    background: #FF6161;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.recordImg {
+    background: #FF6161;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #993A3A, inset 1px 1px 0 0 #FFFFFF;
+    padding: 3px;
+}
+
+.recordImg img {
+    padding: 3px 5px;
+}
+
+#recordBtn span {
+    padding: 2px 49px;
+}
+
