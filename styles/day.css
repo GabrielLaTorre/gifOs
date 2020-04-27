@@ -573,7 +573,7 @@ body {
     height: 60px;
 }
 
-#timerDiv {
+.timerBox {
     margin: 10px;
     display: inline-block;
     width: fit-content;
@@ -626,3 +626,45 @@ body {
     padding: 2px 49px;
 }
 
+#previewBar {
+    display: flex;
+}
+
+.previewLeft {
+    display: flex;
+}
+
+.mediaPlay {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 264px;
+    height: min-content;
+}
+
+#playPrev {
+    background: #F7C9F3;
+    height: 20px;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#playPrev:hover {
+    cursor: pointer;
+}
+
+#progressBar {
+    width: 240px;
+    height: 18px;
+    background: #B4B4B4;
+    box-shadow: -1px -1px 0 1px #000000, 0px 0px 0 2px #FFFCFC;
+    display: grid;
+    grid-template-columns: repeat(17, 1fr);
+    column-gap: 2px;
+    position: relative;
+    top: 2px;
+}
+
+#progressBar span {
+    background: #999999;
+}
