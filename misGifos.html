@@ -36,7 +36,42 @@
                                 <li>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</li>
                             </ul>
                         </div>
-                        <video src="" id="checkVideo" class="videoScreen"></video>
+                        <video src="" id="checkVideo" class="videoScreen hidden">
+                        </video>
+                        <div class="uploadingDiv">
+                            <div class="uploadTop">
+                                <img src="/images/globe_img.png" alt="globe.png">
+                                <p>Estamos subiendo tu guifo...</p>
+                            </div>
+                            <div class="uploadDown">
+                                <div id="progressUp" class="progressBar">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <p>Tiempo restante: <span>38 años</span> algunos minutos</p>
+                            </div>
+                        </div>
 
                         <!-- ||||||||||| División |||||||||||| -->
 
@@ -64,7 +99,7 @@
                                 </div>
                                 <div class="mediaPlay">
                                     <button id="playPrev"><img src="/images/forward.svg" alt="forward.svg"></button>
-                                    <div id="progressBar">
+                                    <div id="progressPrev" class="progressBar">
                                         <span></span>
                                         <span></span>
                                         <span></span>
@@ -86,8 +121,18 @@
                                 </div>
                             </div>
                             <div class="previewRight">
-
+                                <button class="btn-white">
+                                   <span>Repetir Captura</span>
+                                </button>
+                                <button class="btn-pink">
+                                    <span id="moreDotted">Subir Guifo</span>
+                                </button>
                             </div>
+                        </div>
+                        <div class="uploadBar">
+                            <button class="btn-white">
+                               <span>Cancelar</span>
+                            </button>
                         </div>
                     </figure>
                   </section>
