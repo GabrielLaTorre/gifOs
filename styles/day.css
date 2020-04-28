@@ -297,6 +297,7 @@ body {
 }
 
 .title {
+    font-weight: 400;
     margin-top: 76px;
     padding-top: 6px;
     padding-left: 16px;
@@ -759,7 +760,7 @@ body {
 }
 
 .finishContent {
-    display: none; /* flex */
+    display: flex; /* flex */
     width: 720px;
     justify-content: space-around;
     padding: 30px 25px 0px;
@@ -797,3 +798,27 @@ body {
     margin-left: auto;
     padding: 45px;
 }
+
+#finishBar span {
+    padding: 4px 50px;
+}
+
+#dotted1 {
+    padding: 4px 53px;
+}
+
+#dotted2 {
+    padding: 4px 65px;
+}
+
+.backArrow {
+    position: relative;
+    top: 25px;
+    right: 15px;
+}
+
+.logoGuifo {
+    position: relative;
+    top: 35px;
+}
+
