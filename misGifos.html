@@ -23,7 +23,7 @@
                   <section id="captureSec">
                     <figure id="mediaFigure">
                         <figcaption id="mediaTitle">Crear Guifos</figcaption>
-                        <div id="mediaContent" class="hidden">
+                        <div id="mediaContent" class="">
                             <img src="images/window img.png" alt="window.jpg">
                             <strong> Aquí podras crear tus propios gifos </strong>
                             <ul>
@@ -72,10 +72,17 @@
                                 <p>Tiempo restante: <span>38 años</span> algunos minutos</p>
                             </div>
                         </div>
-
+                        <div class="finishContent">
+                            <div id="createdGuifo"> </div>
+                            <div class="createdBtns">
+                                <p>Guifo creado con éxito</p>
+                                <button id="urlGuifo" class="btn-white">Copiar Enlace Guifo</button>
+                                <button id="downloadGuifo" class="btn-white">Descargar Guifo</button>
+                            </div>
+                        </div>
                         <!-- ||||||||||| División |||||||||||| -->
 
-                        <div id="initBar" class="initBar hidden">
+                        <div id="initBar" class="initBar">
                             <button id="cancelBtn" class="btn-white"><span>Cancelar</span></button>
                             <button id="readyBtn" class="btn-pink"><span>Comenzar</span></button>
                         </div>
@@ -129,10 +136,13 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="uploadBar">
+                        <div class="uploadBar hidden">
                             <button class="btn-white">
                                <span>Cancelar</span>
                             </button>
+                        </div>
+                        <div id="finishBar" class="hidden">
+                            <button class="btn-pink"><span>Listo</span></button>
                         </div>
                     </figure>
                   </section>
