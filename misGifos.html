@@ -3,8 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link id="styleGifos" href="./styles/day.css" />
-    <script src="/scripts/gifos.js" type=""></script>
+    <link id="styleGifos" rel="stylesheet" href="/styles/day.css" />
     <title>Document</title>
   </head>
   <body>
@@ -25,7 +24,7 @@
           <section id="captureSec">
             <figure id="mediaFigure">
               <figcaption id="mediaTitle">Crear Guifos</figcaption>
-              <div id="mediaContent" class="hidden">
+              <div id="mediaContent" class="">
                 <img src="images/window img.png" alt="window.jpg" />
                 <strong> Aquí podras crear tus propios gifos </strong>
                 <ul>
@@ -47,7 +46,8 @@
                 </ul>
               </div>
               <video src="" id="checkVideo" class="videoScreen hidden"></video>
-              <div class="uploadingDiv">
+              <video src="" id="previewVideo" class="videoScreen hidden"></video>
+              <div id="uploadingDiv" class="uploadDiv">
                 <div class="uploadTop">
                   <img src="/images/globe_img.png" alt="globe.png" />
                   <p>Estamos subiendo tu guifo...</p>
@@ -81,7 +81,7 @@
                   <p>Tiempo restante: <span>38 años</span> algunos minutos</p>
                 </div>
               </div>
-              <div class="finishContent">
+              <div id="finishCont" class="finishContent">
                 <div id="createdGuifo"></div>
                 <div class="createdBtns">
                   <p>Guifo creado con éxito</p>
@@ -95,8 +95,8 @@
               </div>
               <!-- ||||||||||| División |||||||||||| -->
 
-              <div id="initBar" class="initBar hidden">
-                <button id="cancelBtn" class="btn-white">
+              <div id="initBar" class="initBar ">
+                <button id="cancelBtnInit" class="btn-white">
                   <span>Cancelar</span>
                 </button>
                 <button id="readyBtn" class="btn-pink">
@@ -119,7 +119,7 @@
                   <div class="recordImg">
                     <img src="/images/recording.svg" alt="recording.jpg" />
                   </div>
-                  <button id="recordBtn"><span>Listo</span></button>
+                  <button id="stopRecordBtn"><span>Listo</span></button>
                 </div>
               </div>
               <div id="previewBar">
@@ -156,17 +156,17 @@
                   <button class="btn-white">
                     <span>Repetir Captura</span>
                   </button>
-                  <button class="btn-pink">
+                  <button class="btn-pink" id="upGuifo">
                     <span id="moreDotted">Subir Guifo</span>
                   </button>
                 </div>
               </div>
-              <div class="uploadBar hidden">
+              <div id="uploadingBar" class="uploadBar hidden">
                 <button class="btn-white">
                   <span>Cancelar</span>
                 </button>
               </div>
-              <div id="finishBar" class="">
+              <div id="finishBar" class="hidden">
                 <button class="btn-pink"><span>Listo</span></button>
               </div>
             </figure>
@@ -180,5 +180,7 @@
         </section>
       </main>
     </div>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script src="/scripts/gifos.js" type=""></script>
   </body>
 </html>

@@ -17,7 +17,6 @@ function printRecommendedGifs() {
       gifObject
       .then(obj => obj.data)
       .then(data => {
-        console.log(data);
         const url = data.images.downsized.url;
         element.setAttribute("src", url);
       });
@@ -93,7 +92,6 @@ function switchTeme(e) {
     arrow.setAttribute("src", "/images/whitedown.svg");
     handlersObj.searchImg.setAttribute("src", "/images/lupa_gray.svg");
     sessionStorage.setItem('theme', theme.getAttribute('href'));
-    
   }
 }
 

@@ -592,15 +592,15 @@ body {
     display: inline-flex;
 }
 
-#recordDiv:hover, #recordBtn:hover {
+#recordDiv:hover, #stopRecordBtn:hover {
     cursor: pointer;
 }
 
-#recordDiv:hover img, #recordDiv:hover span, #recordBtn:hover span {
+#recordDiv:hover img, #recordDiv:hover span, #stopRecordBtn:hover span {
     border: 1px dotted #ffffff;
 }
 
-#recordBtn {
+#stopRecordBtn {
     padding: 0;
     width: 144px;
     color: #ffffff;
@@ -623,7 +623,7 @@ body {
     padding: 3px 5px;
 }
 
-#recordBtn span {
+#stopRecordBtn span {
     padding: 2px 49px;
 }
 
@@ -699,7 +699,7 @@ body {
     padding: 4px 28px;
 }
 
-.uploadingDiv {
+.uploadDiv {
     display: none; /* grid */
     justify-items: center;
     grid-template-rows: repeat(4, 1fr);
@@ -760,7 +760,7 @@ body {
 }
 
 .finishContent {
-    display: flex; /* flex */
+    display: none; /* flex */
     width: 720px;
     justify-content: space-around;
     padding: 30px 25px 0px;

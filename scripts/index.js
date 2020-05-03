@@ -4,6 +4,8 @@ import {mostrarOcultar, printTrendingGifs, printSearchGifs, printRecommendedGifs
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
+  const theme = document.getElementById("style");
+  sessionStorage.setItem('theme', theme.getAttribute('href'));
   handlersObj.handlerUl.addEventListener("click", mostrarOcultar);
   handlersObj.searchBtn.addEventListener('click', printSearchGifs);
   handlersObj.searchInput.addEventListener('input', switchSearchStyle)
