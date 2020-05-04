@@ -1,4 +1,4 @@
-export {getTrendingGifs, getRandomGifs, getSearchGifs, autocompleteSearch, getSearchSuggestions};
+// export {getTrendingGifs, getRandomGifs, getSearchGifs, autocompleteSearch, getSearchSuggestions, uploadGuifo};
 
 const apiKey = "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw";
 
@@ -44,6 +44,13 @@ function getSearchSuggestions(term) {
   const found = fetch(`https://api.giphy.com/v1/tags/related/${term}?&api_key=${apiKey}`)
   .then(obj => obj.json())
   .then(content => content.data)
+  .catch(err => console.log(err))
+  return found;
+}
+
+function uploadGuifo(method, file) {
+  const found = fetch(`https://upload.giphy.com/v1/gifs?api_key=${apiKey}`, method)
+  .then(response => response.json())
   .catch(err => console.log(err))
   return found;
 }

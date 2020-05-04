@@ -1,6 +1,18 @@
-import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch, getSearchSuggestions} from "./api.js";
-import { handlersObj } from "./handlers.js";
-export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle, printSearchSuggested};
+// import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch, getSearchSuggestions} from "./api.js";
+// import { handlersObj } from "./handlers.js";
+// export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle, printSearchSuggested};
+
+handlersObj.searchInput.addEventListener('input', switchSearchStyle) // <--- Traido de Index.js
+handlersObj.handlerUl.addEventListener("click", mostrarOcultar);
+handlersObj.searchBtn.addEventListener('click', printSearchGifs);
+handlersObj.suggetedButtons.forEach(btn => {
+  const element = btn;
+  element.addEventListener('click', printSearchSuggested);
+})
+const theme = document.getElementById("style");
+  sessionStorage.setItem('theme', theme.getAttribute('href'));
+
+
 
 function printRecommendedGifs() { 
   const recommendedTitles = handlersObj.recommendedTopics;
@@ -12,13 +24,14 @@ function printRecommendedGifs() {
     const element = recommendedCards[i];
     const indexRandom = Math.floor(Math.random() * limitGifs);
     const input = recommendedTitles[indexRandom];
-    titles[i].textContent = `#${input} GIF`;
     const gifObject = getRandomGifs(input);
       gifObject
       .then(obj => obj.data)
       .then(data => {
         const url = data.images.downsized.url;
+        titles[i].textContent = `#${data.title}`;
         element.setAttribute("src", url);
+        console.log(data);
       });
     moreBtn[i].addEventListener('click', () => {printMoreResults(input)});
     };
@@ -94,8 +107,6 @@ function switchTeme(e) {
     sessionStorage.setItem('theme', theme.getAttribute('href'));
   }
 }
-
-// ############ SWITCH THEMES ##############
 
 function mostrarOcultar() {
   let oculto = document.getElementById("oculto");

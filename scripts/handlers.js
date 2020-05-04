@@ -1,4 +1,4 @@
-export const handlersObj = {
+const handlersObj = {
     searchBtn: document.getElementById("search-btn"),
     searchSection: document.getElementById("search-results"),
     searchImg: document.getElementById('search-img'),
