@@ -29,7 +29,10 @@ function printRecommendedGifs() {
       .then(obj => obj.data)
       .then(data => {
         const url = data.images.downsized.url;
-        titles[i].textContent = `#${data.title}`;
+        const gifTitle = createTitle(data.title);
+        gifTitle != "" ?
+        titles[i].textContent = `#${gifTitle}`
+        :titles[i].textContent = `#${input}GIF`;
         element.setAttribute("src", url);
         console.log(data);
       });
@@ -221,4 +224,14 @@ function printMoreResults(input) {
   });
   printTagsButton(input);
   suggestedBar.style.display = 'none';
+}
+
+function createTitle(input) {
+  const arrStr = input.split(" ", 3);
+  const newArr = [];
+  arrStr.forEach(element => {
+      const texto = element.charAt(0).toUpperCase() + element.slice(1);
+      newArr.push(texto);
+  });
+  return newArr.join("");
 }
