@@ -34,7 +34,6 @@ function printRecommendedGifs() {
         titles[i].textContent = `#${gifTitle}`
         :titles[i].textContent = `#${input}GIF`;
         element.setAttribute("src", url);
-        console.log(data);
       });
     moreBtn[i].addEventListener('click', () => {printMoreResults(input)});
     };
@@ -139,6 +138,7 @@ function switchSearchStyle(e){
   autocomplete
   .then(obj => obj.data)
   .then(data => {
+    console.log(data)
     for (let i = 0; i < suggestedButtons.length; i++) {
       const element = suggestedButtons[i];
       const value = data[i].name;

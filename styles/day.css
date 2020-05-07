@@ -577,10 +577,10 @@ body {
 .timerBox {
     margin: 10px;
     display: inline-block;
-    width: fit-content;
+    width: 120px;
     background: #FFFFFF;
     border: 1px solid #979797;
-    padding: 7px 17px;
+    padding: 7px 12px;
     box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
 }
 

@@ -62,6 +62,7 @@ function switchTeme(style) {
   captureBtn.addEventListener('click', () => {
     document.getElementById('captureBar').classList.add('hidden');
     document.getElementById('recordBar').classList.remove('hidden');
+    timerObj.cronometrar();
     gifRecorder = RecordRTC(streamLive, gifSettings);
     videoRecorder = RecordRTC(streamLive, videoSettings);
     gifRecorder.startRecording();
@@ -74,17 +75,23 @@ function switchTeme(style) {
     previewVideo.classList.remove('hidden');
     document.getElementById('recordBar').classList.add('hidden');
     document.getElementById('previewBar').style.display = 'flex';
+    const tiempoTranscurrido = timerObj.parar();
+    document.getElementById('timerPrev').textContent = tiempoTranscurrido;
     videoRecorder.stopRecording( () =>{
-        const blob = videoRecorder.getBlob();
-        const url = window.URL.createObjectURL(blob);
-       previewVideo.src = url;
-       previewVideo.setAttribute('controls', true);
+      const blob = videoRecorder.getBlob();
+      const url = window.URL.createObjectURL(blob);
+      previewVideo.src = url;
+      previewVideo.setAttribute('controls', true);
+      const playPrev = document.getElementById('playPrev');
+      playPrev.addEventListener('click',()=> {
+        previewVideo.play();
+        timerProgress(tiempoTranscurrido);
+      })
     })
     gifRecorder.stopRecording( () => {
       const blob = gifRecorder.getBlob();
       gifForm = new FormData();
       gifForm.append('file', blob, 'myGuifo.gif');
-      console.log(gifForm.get('file'));
     })
   })
 
@@ -122,3 +129,86 @@ function switchTeme(style) {
       .catch((err) => console.log(err));
     return stream;
   }
+
+//////////////// TIMER ////////////////
+
+
+
+const timerObj = {
+
+  reiniciarBtn : document.getElementById('reiniciarBtn'),
+  h : 0,
+  m : 0,
+  s : 0,
+  inicio: 0,
+  fin: 0,
+  id : 0,
+  
+  cronometrar(){
+      timerObj.inicio = Date.now();
+      timerObj.escribir();
+      timerObj.id = setInterval(timerObj.escribir,1000);
+  },
+  
+  escribir(){
+      let horas, minutos, segundos;
+      timerObj.s++;
+      if (timerObj.s>59){timerObj.m++;timerObj.s=0;}
+      if (timerObj.m>59){timerObj.h++;timerObj.m=0;}
+      if (timerObj.h>24){timerObj.h=0;}
+  
+      if (timerObj.s<10){segundos="0"+timerObj.s;}else{segundos=timerObj.s;}
+      if (timerObj.m<10){minutos="0"+timerObj.m;}else{minutos=timerObj.m;}
+      if (timerObj.h<10){horas="0"+timerObj.h;}else{horas=timerObj.h;}
+  
+      document.getElementById("timerWrite").innerHTML = `00:${horas}:${minutos}:${segundos}`; 
+  },
+  
+  parar(){
+    timerObj.fin = Date.now();
+    clearInterval(timerObj.id);
+    const timeDate = Math.ceil((timerObj.fin - timerObj.inicio) / 1000);
+    return timeDate;
+  },
+  
+  reiniciar(){
+      document.getElementById("hms").innerHTML="00:00:00:00";
+      timerObj.h=0;timerObj.m=0;timerObj.s=0;
+  }
+}
+
+function timerProgress(time) {
+  const arrSpn = document.getElementById('progressPrev').children;
+  let counter = 0;
+  const timer = (time * 1000) / arrSpn.length;
+  let interval; // <--- ID para detener la ejecución del interval
+  const print = ()=> {
+      if (counter < arrSpn.length) {
+          arrSpn[counter].style.background = '#F7C9F3'
+          counter++;
+      } else {
+          for (let i = 0; i < arrSpn.length; i++) {
+              const element = arrSpn[i];
+              element.style.background = '#999999';
+              counter = 0; // <--- Volvemos el contador a 0
+          }
+          clearInterval(interval); // <--- Paramos la ejecución del interval
+      }
+  }
+  interval = setInterval(print, timer); // <-- Llamamos al interval
+}
+
+function printPreviewTime(time) {
+  let s,horas, minutos, segundos;
+  let counter = 0;
+    s++;
+    if (s>59){m++;s=0;}
+    if (m>59){h++;m=0;}
+    if (h>24){h=0;}
+
+    if (s<10){segundos="0"+s;}else{segundos=s;}
+    if (m<10){minutos="0"+m;}else{minutos=m;}
+    if (h<10){horas="0"+h;}else{horas=h;}
+
+    document.getElementById("hms").innerHTML = `00:${horas}:${minutos}:${segundos}`; 
+}
