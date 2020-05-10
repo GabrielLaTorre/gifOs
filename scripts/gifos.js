@@ -1,5 +1,6 @@
 
 const sessionStyle = sessionStorage.getItem('theme')
+let tiempoTranscurrido;
 let streamLive;
 let videoRecorder;
 let gifRecorder;
@@ -62,22 +63,22 @@ function switchTeme(style) {
   captureBtn.addEventListener('click', () => {
     document.getElementById('captureBar').classList.add('hidden');
     document.getElementById('recordBar').classList.remove('hidden');
-    timerObj.cronometrar();
     gifRecorder = RecordRTC(streamLive, gifSettings);
     videoRecorder = RecordRTC(streamLive, videoSettings);
-    gifRecorder.startRecording();
     videoRecorder.startRecording();
+    timerObj.cronometrar();
+    gifRecorder.startRecording();
   })
 
   const stopRecordBtn = document.getElementById('stopRecordBtn');
   stopRecordBtn.addEventListener('click', () => {
+    tiempoTranscurrido = timerObj.parar();
     videoScreen.classList.add('hidden');
     previewVideo.classList.remove('hidden');
     document.getElementById('recordBar').classList.add('hidden');
     document.getElementById('previewBar').style.display = 'flex';
-    const tiempoTranscurrido = timerObj.parar();
-    document.getElementById('timerPrev').textContent = tiempoTranscurrido;
     videoRecorder.stopRecording( () =>{
+      console.log(tiempoTranscurrido);
       const blob = videoRecorder.getBlob();
       const url = window.URL.createObjectURL(blob);
       previewVideo.src = url;
@@ -85,6 +86,7 @@ function switchTeme(style) {
       const playPrev = document.getElementById('playPrev');
       playPrev.addEventListener('click',()=> {
         previewVideo.play();
+        printPreviewTime(tiempoTranscurrido);
         timerProgress(tiempoTranscurrido);
       })
     })
@@ -145,9 +147,8 @@ const timerObj = {
   id : 0,
   
   cronometrar(){
-      timerObj.inicio = Date.now();
-      timerObj.escribir();
       timerObj.id = setInterval(timerObj.escribir,1000);
+      timerObj.inicio = Date.now();
   },
   
   escribir(){
@@ -182,7 +183,7 @@ function timerProgress(time) {
   let counter = 0;
   const timer = (time * 1000) / arrSpn.length;
   let interval; // <--- ID para detener la ejecución del interval
-  const print = ()=> {
+  const printSpn = ()=> {
       if (counter < arrSpn.length) {
           arrSpn[counter].style.background = '#F7C9F3'
           counter++;
@@ -195,20 +196,34 @@ function timerProgress(time) {
           clearInterval(interval); // <--- Paramos la ejecución del interval
       }
   }
-  interval = setInterval(print, timer); // <-- Llamamos al interval
+  interval = setInterval(printSpn, timer); // <-- Llamamos al interval
 }
 
 function printPreviewTime(time) {
-  let s,horas, minutos, segundos;
+  let s = 0;
+  let m = 0;
+  let h = 0;
+  let horas, minutos, segundos;
   let counter = 0;
-    s++;
+  let idInterval;
+  const printTime = () => {
+    if(counter < time) {
+      s++;
     if (s>59){m++;s=0;}
     if (m>59){h++;m=0;}
     if (h>24){h=0;}
-
+  
     if (s<10){segundos="0"+s;}else{segundos=s;}
     if (m<10){minutos="0"+m;}else{minutos=m;}
     if (h<10){horas="0"+h;}else{horas=h;}
+  
+      document.getElementById("timerPrev").innerHTML = `00:${horas}:${minutos}:${segundos}`;
+      counter++;
+    }
+    else {
+      clearInterval(idInterval);
+    }
+  }
 
-    document.getElementById("hms").innerHTML = `00:${horas}:${minutos}:${segundos}`; 
+  idInterval = setInterval(printTime ,1000);
 }
