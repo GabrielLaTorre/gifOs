@@ -6,12 +6,15 @@ let videoRecorder;
 let gifRecorder;
 let videoScreen = document.getElementById('checkVideo');
 let previewVideo = document.getElementById('previewVideo');
-let gifForm; 
+let gifForm;
+let gifUrl;
+let gifoID;
 const gifSettings = {
   type: 'gif',
   frameRate: 1,
   quality: 10,
-  width: 830,
+  width: 370,
+  height: 190,
   hidden: 240,
   
   onGifRecordingStarted: function() {
@@ -115,24 +118,25 @@ function switchTeme(style) {
     document.getElementById('previewBar').style.display = 'none';
     document.getElementById('uploadingDiv').style.display = 'grid';
     document.getElementById('uploadingBar').classList.remove('hidden');
+    streamLive.getTracks().forEach(track => {
+      track.stop();
+    });
     const guifoUploaded = apiObj.uploadGuifo(gifForm)
     guifoUploaded
     .then(resp => {
-      streamLive.getTracks().forEach(track => {
-        track.stop();
-      });
-      const myGuifo = apiObj.getGifByID(resp.data.id);
+      gifoID = resp.data.id;
+      const myGuifo = apiObj.getGifByID(gifoID);
       myGuifo
         .then(data => {
-          const url = data.data.images.original.url;
+          gifUrl = data.data.images.original.url;
           const img = document.createElement('img');
-          img.setAttribute('src', url);
+          img.setAttribute('src', gifUrl);
           const divGuifo = document.getElementById('createdGuifo');
           divGuifo.insertAdjacentElement('afterbegin', img);
         })
         .catch(err => console.log(err))
-        document.getElementById('uploadingDiv').style.display = 'none';
-        document.getElementById('uploadingBar').classList.add('hidden');
+      document.getElementById('uploadingDiv').style.display = 'none';
+      document.getElementById('uploadingBar').classList.add('hidden');
       document.getElementById('finishCont').style.display = 'flex';
       document.getElementById('finishBar').classList.remove('hidden');
     })
@@ -147,6 +151,21 @@ function switchTeme(style) {
     document.getElementById('uploadingBar').classList.add('hidden');
     document.getElementById('mediaContent').classList.remove('hidden');
     document.getElementById('initBar').classList.remove('hidden');
+  })
+
+  const finishBtn = document.getElementById('finishBtn');
+  finishBtn.addEventListener('click', ()=> {
+    document.getElementById('finishCont').style.display = 'none';
+    document.getElementById('finishBar').classList.add('hidden');
+    document.getElementById('mediaContent').classList.remove('hidden');
+    document.getElementById('initBar').classList.remove('hidden');
+  })
+
+  const copyUrlBtn = document.getElementById('copyUrlBtn');
+  copyUrlBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(gifUrl)
+    .then(alert(`Url copiada!`))
+    .catch(err => alert(err))
   })
 
   const streamSetting = {
