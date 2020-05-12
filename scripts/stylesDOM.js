@@ -24,7 +24,7 @@ function printRecommendedGifs() {
     const element = recommendedCards[i];
     const indexRandom = Math.floor(Math.random() * limitGifs);
     const input = recommendedTitles[indexRandom];
-    const gifObject = getRandomGifs(input);
+    const gifObject = apiObj.getRandomGifs(input);
       gifObject
       .then(obj => obj.data)
       .then(data => {
@@ -51,7 +51,7 @@ function printSearchGifs() {
   handlersObj.searchSection.style.display = "block";
   recommendedSection.style.display = 'none';
   searchTitle.innerText = `${input} (resultados)`;
-  const gifData = getSearchGifs(input, limit);
+  const gifData = apiObj.getSearchGifs(input, limit);
   gifData.then(gifObject => {
     for (let i = 0; i < searchGifs.length; i++) {
       const element = searchGifs[i];
@@ -67,7 +67,7 @@ function printSearchGifs() {
 
 function printTrendingGifs() {
   const trendingCards = handlersObj.trendCards;
-  const trendingObj = getTrendingGifs();
+  const trendingObj = apiObj.getTrendingGifs();
   trendingObj.then(data => {
     for (let i = 0; i < trendingCards.length; i++) {
       const src = data[i].images.downsized.url;
@@ -134,7 +134,7 @@ function switchSearchStyle(e){
   button.style.background = '#F7C9F3';
   button.style.color = '#110038';
   img.setAttribute('src', '/images/lupa.svg');
-  let autocomplete = autocompleteSearch(inputValue);
+  let autocomplete =  apiObj.autocompleteSearch(inputValue);
   autocomplete
   .then(obj => obj.data)
   .then(data => {
@@ -164,7 +164,7 @@ function printSearchSuggested(e) {
   recommendedSection.style.display = 'none';
   handlersObj.searchSection.style.display = "block";
   searchTitle.innerText = `${input} (resultados)`;
-  const gifData = getSearchGifs(input, limit);
+  const gifData = apiObj.getSearchGifs(input, limit);
   gifData.then(gifObject => {
     for (let i = 0; i < searchGifs.length; i++) {
       const element = searchGifs[i];
@@ -191,7 +191,7 @@ function cleanSearchGifs(){
 function printTagsButton(input){
   const tagBtns = handlersObj.tagButtons;
   const tags = handlersObj.suggestedTags;
-  const topic = getSearchSuggestions(input);
+  const topic = apiObj.getSearchSuggestions(input);
   topic.then(data => {
     for (let i = 0; i < tags.length; i++) {
       const element = tags[i];
@@ -212,7 +212,7 @@ function printMoreResults(input) {
   recommendedSection.style.display = 'none';
   handlersObj.searchSection.style.display = "block";
   searchTitle.innerText = `${input} (resultados)`;
-  const gifData = getSearchGifs(input, limit);
+  const gifData = apiObj.getSearchGifs(input, limit);
   gifData.then(gifObject => {
     for (let i = 0; i < searchGifs.length; i++) {
       const element = searchGifs[i];

@@ -42,8 +42,8 @@ function switchTeme(style) {
 
   const readyBtn = document.getElementById('readyBtn');
   readyBtn.addEventListener('click', () => {
-    document.getElementById('mediaContent').setAttribute('class', 'hidden');
-    document.getElementById('initBar').setAttribute('class', 'hidden');
+    document.getElementById('mediaContent').classList.add('hidden');
+    document.getElementById('initBar').classList.add('hidden');
     videoScreen.classList.remove('hidden');
     document.getElementById('captureBar').classList.remove('hidden');
     getStreamRecord()
@@ -73,13 +73,14 @@ function switchTeme(style) {
   const stopRecordBtn = document.getElementById('stopRecordBtn');
   stopRecordBtn.addEventListener('click', () => {
     tiempoTranscurrido = timerObj.parar();
+    timerObj.reiniciar();
     videoScreen.classList.add('hidden');
     previewVideo.classList.remove('hidden');
     document.getElementById('recordBar').classList.add('hidden');
     document.getElementById('previewBar').style.display = 'flex';
     videoRecorder.stopRecording( () =>{
-      console.log(tiempoTranscurrido);
       const blob = videoRecorder.getBlob();
+      console.log(blob);
       const url = window.URL.createObjectURL(blob);
       previewVideo.src = url;
       previewVideo.setAttribute('controls', true);
@@ -92,9 +93,20 @@ function switchTeme(style) {
     })
     gifRecorder.stopRecording( () => {
       const blob = gifRecorder.getBlob();
+      console.log(blob);
       gifForm = new FormData();
       gifForm.append('file', blob, 'myGuifo.gif');
     })
+  })
+
+  const repeatGuifo = document.getElementById('repeatGuifo');
+  repeatGuifo.addEventListener('click', () => {
+    videoScreen.classList.remove('hidden');
+    previewVideo.classList.add('hidden');
+    document.getElementById('previewBar').style.display = 'none';
+    document.getElementById('captureBar').classList.remove('hidden');
+    videoRecorder.destroy();
+    gifRecorder.destroy();
   })
 
   const upGuifo = document.getElementById('upGuifo');
@@ -103,17 +115,38 @@ function switchTeme(style) {
     document.getElementById('previewBar').style.display = 'none';
     document.getElementById('uploadingDiv').style.display = 'grid';
     document.getElementById('uploadingBar').classList.remove('hidden');
-    const heading = new Headers();
-      const init = {
-        method: 'POST',
-        headers: heading,
-        body: gifForm,
-        mode: 'cors'
-      }
-      const guifoUploaded = uploadGuifo(init)
-      guifoUploaded
-      .then(resp => console.log(resp))
-      .catch(err => console.log(err));
+    const guifoUploaded = apiObj.uploadGuifo(gifForm)
+    guifoUploaded
+    .then(resp => {
+      streamLive.getTracks().forEach(track => {
+        track.stop();
+      });
+      const myGuifo = apiObj.getGifByID(resp.data.id);
+      myGuifo
+        .then(data => {
+          const url = data.data.images.original.url;
+          const img = document.createElement('img');
+          img.setAttribute('src', url);
+          const divGuifo = document.getElementById('createdGuifo');
+          divGuifo.insertAdjacentElement('afterbegin', img);
+        })
+        .catch(err => console.log(err))
+        document.getElementById('uploadingDiv').style.display = 'none';
+        document.getElementById('uploadingBar').classList.add('hidden');
+      document.getElementById('finishCont').style.display = 'flex';
+      document.getElementById('finishBar').classList.remove('hidden');
+    })
+  })
+
+  const abortBtn = document.getElementById('abortBtn');
+  abortBtn.addEventListener('click', ()=> {
+    apiObj.abortCtrl.abort();
+    videoRecorder.destroy();
+    gifRecorder.destroy();
+    document.getElementById('uploadingDiv').style.display = 'none';
+    document.getElementById('uploadingBar').classList.add('hidden');
+    document.getElementById('mediaContent').classList.remove('hidden');
+    document.getElementById('initBar').classList.remove('hidden');
   })
 
   const streamSetting = {
@@ -137,8 +170,6 @@ function switchTeme(style) {
 
 
 const timerObj = {
-
-  reiniciarBtn : document.getElementById('reiniciarBtn'),
   h : 0,
   m : 0,
   s : 0,
@@ -173,7 +204,7 @@ const timerObj = {
   },
   
   reiniciar(){
-      document.getElementById("hms").innerHTML="00:00:00:00";
+      document.getElementById("timerWrite").innerHTML="00:00:00:00";
       timerObj.h=0;timerObj.m=0;timerObj.s=0;
   }
 }
@@ -221,6 +252,7 @@ function printPreviewTime(time) {
       counter++;
     }
     else {
+      document.getElementById("timerPrev").innerHTML = `00:00:00:00 `;
       clearInterval(idInterval);
     }
   }
