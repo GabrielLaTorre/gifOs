@@ -14,8 +14,6 @@ let gifoID;
 let gifBlob;
 let gifUrlObj;
 
-// localStorage.setItem('guifos', JSON.stringify(uploadedGuifos));
-
 const gifSettings = {
   type: 'gif',
   frameRate: 1,
@@ -136,12 +134,11 @@ function switchTeme(style) {
       myGuifo
         .then(data => {
           gifUrl = data.data.images.original.url;
-          const img = document.createElement('img');
+          const img = document.getElementById('gifoUploaded');
           img.setAttribute('src', gifUrl);
-          const divGuifo = document.getElementById('createdGuifo');
-          divGuifo.insertAdjacentElement('afterbegin', img);
           const downloadBtn = document.getElementById('downloadBtn');
           downloadBtn.href = gifUrlObj;
+          saveGif(gifUrl);
         })
         .catch(err => console.log(err))
       document.getElementById('uploadingDiv').style.display = 'none';
@@ -310,21 +307,17 @@ function uploadProgress() {
 }
 
 function saveGif(id) {
-  const arrayStr = localStorage.getItem('guifos');
-  const arrayGif = JSON.parse(arrayStr);
-  
-  arrayGif.push(id);
 
-  localStorage.setItem('guifos', JSON.stringify(arrayGif));
+  uploadedGuifos.push(id);
+
+  if(!localStorage.getItem('guifos')) {
+    console.log('No hay nada!');
+    localStorage.setItem('guifos', JSON.stringify(uploadedGuifos));
+  } else {
+    const arrayGif = JSON.parse(localStorage.getItem('guifos'));
+    arrayGif.push(id);
+    localStorage.setItem('guifos', JSON.stringify(arrayGif));
+  }
+
 }
 
-saveGif('asdsa123');
-
-function getGifs() {
-  const arrayStr = localStorage.getItem('guifos');
-  const arrayGif = JSON.parse(arrayStr);
-
-  console.log(arrayGif);
-}
-
-getGifs();
