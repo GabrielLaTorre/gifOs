@@ -1,5 +1,7 @@
 
 const sessionStyle = sessionStorage.getItem('theme')
+
+let uploadedGuifos = [];
 let tiempoTranscurrido;
 let streamLive;
 let videoRecorder;
@@ -9,6 +11,11 @@ let previewVideo = document.getElementById('previewVideo');
 let gifForm;
 let gifUrl;
 let gifoID;
+let gifBlob;
+let gifUrlObj;
+
+// localStorage.setItem('guifos', JSON.stringify(uploadedGuifos));
+
 const gifSettings = {
   type: 'gif',
   frameRate: 1,
@@ -83,7 +90,6 @@ function switchTeme(style) {
     document.getElementById('previewBar').style.display = 'flex';
     videoRecorder.stopRecording( () =>{
       const blob = videoRecorder.getBlob();
-      console.log(blob);
       const url = window.URL.createObjectURL(blob);
       previewVideo.src = url;
       previewVideo.setAttribute('controls', true);
@@ -95,10 +101,10 @@ function switchTeme(style) {
       })
     })
     gifRecorder.stopRecording( () => {
-      const blob = gifRecorder.getBlob();
-      console.log(blob);
+      gifBlob = gifRecorder.getBlob();
+      gifUrlObj = window.URL.createObjectURL(gifBlob);
       gifForm = new FormData();
-      gifForm.append('file', blob, 'myGuifo.gif');
+      gifForm.append('file', gifBlob, 'myGuifo.gif');
     })
   })
 
@@ -121,6 +127,7 @@ function switchTeme(style) {
     streamLive.getTracks().forEach(track => {
       track.stop();
     });
+    uploadProgress();
     const guifoUploaded = apiObj.uploadGuifo(gifForm)
     guifoUploaded
     .then(resp => {
@@ -133,6 +140,8 @@ function switchTeme(style) {
           img.setAttribute('src', gifUrl);
           const divGuifo = document.getElementById('createdGuifo');
           divGuifo.insertAdjacentElement('afterbegin', img);
+          const downloadBtn = document.getElementById('downloadBtn');
+          downloadBtn.href = gifUrlObj;
         })
         .catch(err => console.log(err))
       document.getElementById('uploadingDiv').style.display = 'none';
@@ -167,6 +176,7 @@ function switchTeme(style) {
     .then(alert(`Url copiada!`))
     .catch(err => alert(err))
   })
+
 
   const streamSetting = {
     audio: false,
@@ -278,3 +288,43 @@ function printPreviewTime(time) {
 
   idInterval = setInterval(printTime ,1000);
 }
+
+function uploadProgress() {
+  const arrSpn = document.getElementById('progressUp').children;
+  let counter = 0;
+  let interval; // <--- ID para detener la ejecución del interval
+  const printSpn = ()=> {
+      if (counter < arrSpn.length) {
+          arrSpn[counter].style.background = '#F7C9F3'
+          counter++;
+      } else {
+          for (let i = 0; i < arrSpn.length; i++) {
+              const element = arrSpn[i];
+              element.style.background = '#999999';
+              counter = 0; // <--- Volvemos el contador a 0
+          }
+          clearInterval(interval); // <--- Paramos la ejecución del interval
+      }
+  }
+  interval = setInterval(printSpn, 500); // <-- Llamamos al interval
+}
+
+function saveGif(id) {
+  const arrayStr = localStorage.getItem('guifos');
+  const arrayGif = JSON.parse(arrayStr);
+  
+  arrayGif.push(id);
+
+  localStorage.setItem('guifos', JSON.stringify(arrayGif));
+}
+
+saveGif('asdsa123');
+
+function getGifs() {
+  const arrayStr = localStorage.getItem('guifos');
+  const arrayGif = JSON.parse(arrayStr);
+
+  console.log(arrayGif);
+}
+
+getGifs();
