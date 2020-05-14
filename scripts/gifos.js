@@ -19,6 +19,7 @@ let gifUrl;
 let gifoID;
 let gifBlob;
 let gifUrlObj;
+let gifCounter;
 
 const gifSettings = {
   type: 'gif',
@@ -158,6 +159,7 @@ function switchTeme(style) {
           img.setAttribute('src', gifUrl);
           const downloadBtn = document.getElementById('downloadBtn');
           downloadBtn.href = gifUrlObj;
+          debugger;
           saveGif(gifUrl);
           renderGuifos();
         })
@@ -340,15 +342,13 @@ function saveGif(id) {
   } else {
     const arrayGif = JSON.parse(localStorage.getItem('guifos'));
     arrayGif.push(id);
+    console.log(arrayGif);
     localStorage.setItem('guifos', JSON.stringify(arrayGif));
   }
 
 }
 
 function renderGuifos() {
-  const gifoSection = document.getElementById('gifosSec');
-  gifoSection.style.display = 'block';
-
   if(!localStorage.getItem('guifos')) {
     const gifosContainer = document.getElementById('gifosContainer');
     gifosContainer.style.display = 'block';
@@ -356,13 +356,19 @@ function renderGuifos() {
   } else {
     const gifosContainer = document.getElementById('gifosContainer');
     gifosContainer.firstElementChild.classList.add('hidden');
-    gifosContainer.style.display = 'grid';
     const arrayGif = JSON.parse(localStorage.getItem('guifos'));
+    console.log(arrayGif);
+    gifCounter = arrayGif.length - 1;
 
-    arrayGif.forEach(element => {
+    for (let i = 0; i < arrayGif.length; i++) {
+      const element = arrayGif[i];
+      console.log(element);
       const img = document.createElement('img');
       img.setAttribute('src', element);
       gifosContainer.insertAdjacentElement('beforeend', img);
-    });
+    }
+    gifosContainer.style.display = 'grid';
   }
+  const gifoSection = document.getElementById('gifosSec');
+  gifoSection.style.display = 'block';
 }

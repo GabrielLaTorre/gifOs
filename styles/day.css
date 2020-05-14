@@ -237,6 +237,7 @@ body {
     color: black;
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 #997D97, inset 1px 1px 0 0 #FFFFFF;
+    text-decoration: none;
 }
 
 .btn-pink a {
@@ -246,6 +247,9 @@ body {
 
 #dottedSpan {
     padding: 4px 23px;
+    position: relative;
+    top: 6px;
+    left: 2px;
 }
 
 .btn-pink span {
@@ -391,6 +395,15 @@ body {
     grid-gap: 16px;
 }
 
+#gifLarge-a {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#gifLarge-a div {
+    width: 577px;
+}
+
 #gif-a {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -406,6 +419,15 @@ body {
 }
 
 #gif-b div {
+    width: 577px;
+}
+
+#gifLarge-b {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+#gifLarge-b div {
     width: 577px;
 }
 

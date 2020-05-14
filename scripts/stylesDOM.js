@@ -35,11 +35,11 @@ function printRecommendedGifs() {
       .then(obj => obj.data)
       .then(data => {
         const url = data.images.downsized.url;
+        element.setAttribute("src", url);
         const gifTitle = createTitle(data.title);
         gifTitle != "" ?
         titles[i].textContent = `#${gifTitle}`
         :titles[i].textContent = `#${input}GIF`;
-        element.setAttribute("src", url);
       });
     moreBtn[i].addEventListener('click', () => {printMoreResults(input)});
     };
@@ -136,22 +136,28 @@ function switchSearchStyle(e){
   const img = handlersObj.searchImg;
   let inputValue = e.target.value;
   if (inputValue.length >= 1){
+    if (theme.getAttribute('href') == "/styles/day.css") {
+      button.style.background = '#F7C9F3';
+      button.style.color = '#110038';
+      img.setAttribute('src', '/images/lupa.svg');
+    } else if (theme.getAttribute('href') == "/styles/night.css") {
+      button.style.background = '#EE3EFE';
+      button.style.color = '#FFFFFF';
+      img.setAttribute('src', '/images/lupa_light.svg');
+    }
   suggestedBar.style.display = 'flex';
-  button.style.background = '#F7C9F3';
-  button.style.color = '#110038';
-  img.setAttribute('src', '/images/lupa.svg');
   let autocomplete =  apiObj.autocompleteSearch(inputValue);
   autocomplete
   .then(obj => obj.data)
   .then(data => {
-    console.log(data)
     for (let i = 0; i < suggestedButtons.length; i++) {
       const element = suggestedButtons[i];
       const value = data[i].name;
       element.textContent = value;
     }
   })
-  } else {
+  }
+  else {
     suggestedBar.style.display = 'none';
     button.style.background = '#E6E6E6';
     button.style.color = '#B4B4B4';
@@ -226,6 +232,7 @@ function printMoreResults(input) {
       const img = document.createElement("img");
       img.setAttribute("src", src);
       element.insertAdjacentElement("afterbegin", img);
+      window.scrollTo(0, -200);
     }
   });
   printTagsButton(input);
