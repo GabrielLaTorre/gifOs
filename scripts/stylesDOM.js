@@ -9,8 +9,14 @@ handlersObj.suggetedButtons.forEach(btn => {
   const element = btn;
   element.addEventListener('click', printSearchSuggested);
 })
+handlersObj.toMisGuifos.addEventListener('click', () => {
+  document.getElementById('recommended').style.display = 'none';
+  document.getElementById('trending').style.display = 'none';
+  document.getElementById('navDown').style.display = 'none';
+  document.getElementById('gifosSec').style.display = 'block';
+})
 const theme = document.getElementById("style");
-  sessionStorage.setItem('theme', theme.getAttribute('href'));
+sessionStorage.setItem('theme', theme.getAttribute('href'));
 
 
 
@@ -234,4 +240,21 @@ function createTitle(input) {
       newArr.push(texto);
   });
   return newArr.join("");
+}
+
+function renderedGuifos() {
+  if(!localStorage.getItem('guifos')) {
+    const gifosContainer = document.getElementById('gifosContainer');
+    gifosContainer.style.display = 'block';
+    gifosContainer.firstElementChild.classList.remove('hidden');
+  } else {
+    const gifosContainer = document.getElementById('gifosContainer');
+    const arrayGif = JSON.parse(localStorage.getItem('guifos'));
+
+    arrayGif.forEach(element => {
+      const img = document.createElement('img');
+      img.setAttribute('src', element);
+      gifosContainer.insertAdjacentElement('beforeend', img);
+    });
+  }
 }

@@ -30,10 +30,10 @@
                   <li id="night"><span>S</span>ailor Night</li>
                 </ul>
               </div>
-              <a class="mis-guifos" href=""><span>M</span>is Guifos</a>
+              <a class="mis-guifos" href="#gifosSec" id="toMisGuifos"><span>M</span>is Guifos</a>
             </div>
           </div>
-          <div class="nav-down">
+          <div class="nav-down" id="navDown">
             <p>Buscar</p>
             <input type="text" autocomplete="off" id="input" placeholder="Busca gifs, hashtags, temas, busca lo que quieras..."/>
             <button id="search-btn">
@@ -77,33 +77,41 @@
             <div class="rec-div">
               <p class="gif-title"></p>
               <img class="rec-gif" src="" alt="giphy.gif">
-              <button class="btn-more">
-                <span>Ver más...</span>
-              </button>
+              <a href="#search-results">
+                <button class="btn-more">
+                  <span>Ver más...</span>
+                </button>
+              </a>
             </div>
             <img class="btn-close" src="/images/button3.svg" alt="button-close">
             <div class="rec-div">
               <p class="gif-title"></p>
               <img class="rec-gif" src="" alt="giphy.gif">
-              <button class="btn-more">
-                <span>Ver más...</span>
-              </button>
+              <a href="#search-results">
+                <button class="btn-more">
+                  <span>Ver más...</span>
+                </button>
+              </a>
             </div>
             <img class="btn-close" src="/images/button3.svg" alt="button-close">
             <div class="rec-div">
               <p class="gif-title"></p>
               <img class="rec-gif" src="" alt="giphy.gif">
-              <button class="btn-more">
-                <span>Ver más...</span>
-              </button>
+              <a href="#search-results">
+                <button class="btn-more">
+                  <span>Ver más...</span>
+                </button>
+              </a>
             </div>
             <img class="btn-close" src="/images/button3.svg" alt="button-close">
             <div class="rec-div">
               <p class="gif-title"></p>
               <img class="rec-gif" src="" alt="giphy.gif">
-              <button class="btn-more">
-                <span>Ver más...</span>
-              </button>
+              <a href="#search-results">
+                <button class="btn-more">
+                  <span>Ver más...</span>
+                </button>
+              </a>
             </div>
           </div>
         </section>
@@ -120,6 +128,12 @@
             <div class="trend-card"><div></div></div>
             <div class="trend-card"><div></div></div>
             <div id="gif-b" class="trend-card"><div></div></div>
+          </div>
+        </section>
+        <section id="gifosSec" class="hidden">
+          <h2 class="title">Mis guifos</h2>
+          <div class="contenedor" id="gifosContainer">
+            <h1 class="hidden">Nada por aquí... ¯|_( ❛ ͜ʖ ❛ )_/¯</h1>
           </div>
         </section>
       </main>

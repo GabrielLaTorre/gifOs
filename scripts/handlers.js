@@ -5,6 +5,7 @@ const handlersObj = {
     searchInput: document.getElementById("input"),
     searchSuggested: document.getElementById('search-options'),
     searchTitle: document.getElementById('search-title'),
+    toMisGuifos : document.getElementById('toMisGuifos'),
     suggetedButtons:[],
     suggestedTags: [],
     tagButtons: [],

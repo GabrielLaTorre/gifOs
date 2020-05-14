@@ -22,8 +22,11 @@
             <img id="logo" class="logoGuifo" src="images/logo.png" alt="logo"/>
 
           <section id="captureSec">
+            <img class="hidden" src="/images/button3.svg" alt="button-close" id="closeBtn">
             <figure id="mediaFigure">
-              <figcaption id="mediaTitle">Crear Guifos</figcaption>
+              <figcaption id="mediaTitle">
+                Crear Guifos
+              </figcaption>
               <div id="mediaContent" class="">
                 <img src="images/window img.png" alt="window.jpg" />
                 <strong> Aquí podras crear tus propios gifos </strong>
@@ -178,14 +181,16 @@
         </nav>
       </header>
       <main>
-        <section id="gifosSec">
+        <section id="gifosSec" class="">
           <h2 class="title">Mis guifos</h2>
-          <div class="contenedor"></div>
+          <div class="contenedor" id="gifosContainer">
+            <h1 class="hidden">Nada por aquí... ¯|_( ❛ ͜ʖ ❛ )_/¯</h1>
+          </div>
         </section>
       </main>
     </div>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="./scripts/api.js"></script>
-    <script src="/scripts/gifos.js" type="module"></script>
+    <script src="/scripts/gifos.js" type="module"></script> 
   </body>
 </html>

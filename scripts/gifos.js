@@ -1,5 +1,11 @@
+document.addEventListener('DOMContentLoaded', () => {
+  renderGuifos();
+})
+
 
 const sessionStyle = sessionStorage.getItem('theme')
+const mediaTitle = document.getElementById('mediaTitle');
+const btnClose = document.getElementById('closeBtn');
 
 let uploadedGuifos = [];
 let tiempoTranscurrido;
@@ -41,7 +47,13 @@ const videoSettings = {
 function switchTeme(style) {
     const theme = document.getElementById("styleGifos");
     const logo = document.getElementById("logo");
-    theme.setAttribute('href', style);
+    if(style == "/styles/night.css") { 
+      logo.setAttribute('src', "/images/logo_dark.png");
+      theme.setAttribute('href', style);
+    } else {
+      logo.setAttribute("src", "/images/logo.png");
+      theme.setAttribute('href', "/styles/day.css");
+    }
   }
 
   switchTeme(sessionStyle);
@@ -54,6 +66,11 @@ function switchTeme(style) {
     document.getElementById('initBar').classList.add('hidden');
     videoScreen.classList.remove('hidden');
     document.getElementById('captureBar').classList.remove('hidden');
+    mediaTitle.innerText = 'Un Chequeo Antes de Empezar';
+    btnClose.style.left = '990px';
+    btnClose.classList.remove('hidden');
+    const gifoSection = document.getElementById('gifosSec');
+    gifoSection.style.display = 'none';
     getStreamRecord()
     .then(stream => {
       streamLive = stream;
@@ -69,6 +86,7 @@ function switchTeme(style) {
 
   const captureBtn = document.getElementById('captureBtn');
   captureBtn.addEventListener('click', () => {
+    mediaTitle.innerText = 'Capturando Tu Guifo';
     document.getElementById('captureBar').classList.add('hidden');
     document.getElementById('recordBar').classList.remove('hidden');
     gifRecorder = RecordRTC(streamLive, gifSettings);
@@ -82,6 +100,7 @@ function switchTeme(style) {
   stopRecordBtn.addEventListener('click', () => {
     tiempoTranscurrido = timerObj.parar();
     timerObj.reiniciar();
+    mediaTitle.innerText = 'Vista Previa';
     videoScreen.classList.add('hidden');
     previewVideo.classList.remove('hidden');
     document.getElementById('recordBar').classList.add('hidden');
@@ -90,7 +109,6 @@ function switchTeme(style) {
       const blob = videoRecorder.getBlob();
       const url = window.URL.createObjectURL(blob);
       previewVideo.src = url;
-      previewVideo.setAttribute('controls', true);
       const playPrev = document.getElementById('playPrev');
       playPrev.addEventListener('click',()=> {
         previewVideo.play();
@@ -110,6 +128,7 @@ function switchTeme(style) {
   repeatGuifo.addEventListener('click', () => {
     videoScreen.classList.remove('hidden');
     previewVideo.classList.add('hidden');
+    mediaTitle.innerText = 'Un Chequeo Antes de Empezar';
     document.getElementById('previewBar').style.display = 'none';
     document.getElementById('captureBar').classList.remove('hidden');
     videoRecorder.destroy();
@@ -118,6 +137,7 @@ function switchTeme(style) {
 
   const upGuifo = document.getElementById('upGuifo');
   upGuifo.addEventListener('click', () => {
+    mediaTitle.innerText = 'Subiendo Guifo';
     previewVideo.classList.add('hidden');
     document.getElementById('previewBar').style.display = 'none';
     document.getElementById('uploadingDiv').style.display = 'grid';
@@ -139,12 +159,15 @@ function switchTeme(style) {
           const downloadBtn = document.getElementById('downloadBtn');
           downloadBtn.href = gifUrlObj;
           saveGif(gifUrl);
+          renderGuifos();
         })
         .catch(err => console.log(err))
       document.getElementById('uploadingDiv').style.display = 'none';
       document.getElementById('uploadingBar').classList.add('hidden');
       document.getElementById('finishCont').style.display = 'flex';
       document.getElementById('finishBar').classList.remove('hidden');
+      mediaTitle.innerText = 'Guifo Subido Con Éxito';
+      btnClose.style.left = '930px';
     })
   })
 
@@ -165,6 +188,7 @@ function switchTeme(style) {
     document.getElementById('finishBar').classList.add('hidden');
     document.getElementById('mediaContent').classList.remove('hidden');
     document.getElementById('initBar').classList.remove('hidden');
+    btnClose.classList.add('hidden');
   })
 
   const copyUrlBtn = document.getElementById('copyUrlBtn');
@@ -303,7 +327,7 @@ function uploadProgress() {
           clearInterval(interval); // <--- Paramos la ejecución del interval
       }
   }
-  interval = setInterval(printSpn, 500); // <-- Llamamos al interval
+  interval = setInterval(printSpn, 400); // <-- Llamamos al interval
 }
 
 function saveGif(id) {
@@ -321,3 +345,24 @@ function saveGif(id) {
 
 }
 
+function renderGuifos() {
+  const gifoSection = document.getElementById('gifosSec');
+  gifoSection.style.display = 'block';
+
+  if(!localStorage.getItem('guifos')) {
+    const gifosContainer = document.getElementById('gifosContainer');
+    gifosContainer.style.display = 'block';
+    gifosContainer.firstElementChild.classList.remove('hidden');
+  } else {
+    const gifosContainer = document.getElementById('gifosContainer');
+    gifosContainer.firstElementChild.classList.add('hidden');
+    gifosContainer.style.display = 'grid';
+    const arrayGif = JSON.parse(localStorage.getItem('guifos'));
+
+    arrayGif.forEach(element => {
+      const img = document.createElement('img');
+      img.setAttribute('src', element);
+      gifosContainer.insertAdjacentElement('beforeend', img);
+    });
+  }
+}

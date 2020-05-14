@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
 
 * {
     margin: 0;
@@ -469,6 +470,11 @@ body {
     padding: 2px 7px;
 }
 
+#closeBtn {
+    position: relative;
+    top: 23px;
+}
+
 #mediaContent {
     padding: 20px 35px;
 }
@@ -827,3 +833,23 @@ body {
     top: 35px;
 }
 
+#gifosContainer {
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: unset;
+    margin-bottom: 30px;
+}
+
+#gifosContainer img {
+    width: 100%;
+}
+
+#gifosContainer h1 {
+    width: fit-content;
+    font-size: 2em;
+    font-family: 'Baloo 2', cursive;
+    margin: 0 auto;
+    color: rgb(109, 109, 109);
+}
