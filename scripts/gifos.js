@@ -42,12 +42,12 @@ const videoSettings = {
 function switchTeme(style) {
     const theme = document.getElementById("styleGifos");
     const logo = document.getElementById("logo");
-    if(style == "/styles/night.css") { 
-      logo.setAttribute('src', "/images/logo_dark.png");
+    if(style == "./styles/night.css") { 
+      logo.setAttribute('src', "./images/logo_dark.png");
       theme.setAttribute('href', style);
     } else {
-      logo.setAttribute("src", "/images/logo.png");
-      theme.setAttribute('href', "/styles/day.css");
+      logo.setAttribute("src", "./images/logo.png");
+      theme.setAttribute('href', "./styles/day.css");
     }
   }
 

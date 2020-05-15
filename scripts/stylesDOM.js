@@ -97,22 +97,22 @@ function printTrendingGifs() {
 }
 
 function switchTeme(e) {
-  const night = "/styles/night.css";
-  const light = "/styles/day.css";
+  const night = "./styles/night.css";
+  const light = "./styles/day.css";
   const arrow = document.getElementById("arrow");
   const theme = document.getElementById("style");
   const logo = document.getElementById("logo");
   if (e.target.id == "day") {
     theme.setAttribute('href', light);
-    logo.setAttribute("src", "/images/logo.png");
-    arrow.setAttribute("src", "/images/dropdown.svg");
-    handlersObj.searchImg.setAttribute("src", "/images/lupa_inactive.svg");
+    logo.setAttribute("src", "./images/logo.png");
+    arrow.setAttribute("src", "./images/dropdown.svg");
+    handlersObj.searchImg.setAttribute("src", "./images/lupa_inactive.svg");
     sessionStorage.setItem('theme', theme.getAttribute('href'));
   } else if (e.target.id == "night") {
     theme.setAttribute('href', night);
-    logo.setAttribute("src", "/images/logo_dark.png");
-    arrow.setAttribute("src", "/images/whitedown.svg");
-    handlersObj.searchImg.setAttribute("src", "/images/lupa_gray.svg");
+    logo.setAttribute("src", "./images/logo_dark.png");
+    arrow.setAttribute("src", "./images/whitedown.svg");
+    handlersObj.searchImg.setAttribute("src", "./images/lupa_gray.svg");
     sessionStorage.setItem('theme', theme.getAttribute('href'));
   }
 }
@@ -137,14 +137,14 @@ function switchSearchStyle(e){
   const img = handlersObj.searchImg;
   let inputValue = e.target.value;
   if (inputValue.length >= 1){
-    if (theme.getAttribute('href') == "/styles/day.css") {
+    if (theme.getAttribute('href') == "./styles/day.css") {
       button.style.background = '#F7C9F3';
       button.style.color = '#110038';
-      img.setAttribute('src', '/images/lupa.svg');
-    } else if (theme.getAttribute('href') == "/styles/night.css") {
+      img.setAttribute('src', './images/lupa.svg');
+    } else if (theme.getAttribute('href') == "./styles/night.css") {
       button.style.background = '#EE3EFE';
       button.style.color = '#FFFFFF';
-      img.setAttribute('src', '/images/lupa_light.svg');
+      img.setAttribute('src', './images/lupa_light.svg');
     }
   suggestedBar.style.display = 'flex';
   let autocomplete =  apiObj.autocompleteSearch(inputValue);
@@ -162,7 +162,7 @@ function switchSearchStyle(e){
     suggestedBar.style.display = 'none';
     button.style.background = '#E6E6E6';
     button.style.color = '#B4B4B4';
-    img.setAttribute('src', '/images/lupa_inactive.svg')
+    img.setAttribute('src', './images/lupa_inactive.svg')
   }
 }
 
