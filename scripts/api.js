@@ -1,5 +1,3 @@
-// export {getTrendingGifs, getRandomGifs, getSearchGifs, autocompleteSearch, getSearchSuggestions, uploadGuifo};
-
 const apiObj = {
 
   apiKey: "lO1NJjmLEEOMMlbZyPyx6EA0N4vEowCw",

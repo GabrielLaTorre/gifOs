@@ -1,8 +1,9 @@
-// import { getSearchGifs, getTrendingGifs, getRandomGifs, autocompleteSearch, getSearchSuggestions} from "./api.js";
-// import { handlersObj } from "./handlers.js";
-// export { switchTeme, mostrarOcultar, printSearchGifs, printTrendingGifs, printRecommendedGifs, switchSearchStyle, printSearchSuggested};
-
-handlersObj.searchInput.addEventListener('input', switchSearchStyle) // <--- Traido de Index.js
+handlersObj.searchInput.addEventListener('input', switchSearchStyle)
+handlersObj.searchInput.addEventListener('keypress', (e)=> {
+  if(e.code == 'Enter') {
+      printSearchGifs();
+  }
+})
 handlersObj.handlerUl.addEventListener("click", mostrarOcultar);
 handlersObj.searchBtn.addEventListener('click', printSearchGifs);
 handlersObj.suggetedButtons.forEach(btn => {
