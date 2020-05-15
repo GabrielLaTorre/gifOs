@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderGuifos();
+  const gifosContainer = document.getElementById('gifosContainer');
+  const gifosArr = gifosContainer.children
 })
 
 
@@ -28,10 +30,6 @@ const gifSettings = {
   width: 370,
   height: 190,
   hidden: 240,
-  
-  onGifRecordingStarted: function() {
-   console.log('gif record started');
- },
 }
 const videoSettings = {
   type: 'video',
@@ -39,10 +37,6 @@ const videoSettings = {
   quality: 10,
   width: 830,
   hidden: 240,
-  
-  onGifRecordingStarted: function() {
-   console.log('video record started');
- },
 }
 
 function switchTeme(style) {
@@ -70,8 +64,7 @@ function switchTeme(style) {
     mediaTitle.innerText = 'Un Chequeo Antes de Empezar';
     btnClose.style.left = '990px';
     btnClose.classList.remove('hidden');
-    const gifoSection = document.getElementById('gifosSec');
-    gifoSection.style.display = 'none';
+    cleanGuifos()
     getStreamRecord()
     .then(stream => {
       streamLive = stream;
@@ -159,7 +152,6 @@ function switchTeme(style) {
           img.setAttribute('src', gifUrl);
           const downloadBtn = document.getElementById('downloadBtn');
           downloadBtn.href = gifUrlObj;
-          debugger;
           saveGif(gifUrl);
           renderGuifos();
         })
@@ -337,12 +329,10 @@ function saveGif(id) {
   uploadedGuifos.push(id);
 
   if(!localStorage.getItem('guifos')) {
-    console.log('No hay nada!');
     localStorage.setItem('guifos', JSON.stringify(uploadedGuifos));
   } else {
     const arrayGif = JSON.parse(localStorage.getItem('guifos'));
     arrayGif.push(id);
-    console.log(arrayGif);
     localStorage.setItem('guifos', JSON.stringify(arrayGif));
   }
 
@@ -355,20 +345,26 @@ function renderGuifos() {
     gifosContainer.firstElementChild.classList.remove('hidden');
   } else {
     const gifosContainer = document.getElementById('gifosContainer');
-    gifosContainer.firstElementChild.classList.add('hidden');
+    
     const arrayGif = JSON.parse(localStorage.getItem('guifos'));
-    console.log(arrayGif);
-    gifCounter = arrayGif.length - 1;
-
-    for (let i = 0; i < arrayGif.length; i++) {
-      const element = arrayGif[i];
-      console.log(element);
+    arrayGif.forEach(element => {
       const img = document.createElement('img');
       img.setAttribute('src', element);
       gifosContainer.insertAdjacentElement('beforeend', img);
-    }
+    })
+    
     gifosContainer.style.display = 'grid';
   }
   const gifoSection = document.getElementById('gifosSec');
   gifoSection.style.display = 'block';
+}
+
+function cleanGuifos() {
+  const gifosContainer = document.getElementById('gifosContainer');
+  const gifosArr = gifosContainer.children
+  while (gifosContainer.firstChild) {
+    gifosContainer.removeChild(gifosContainer.firstChild);
+}
+  const gifoSection = document.getElementById('gifosSec');
+  gifoSection.style.display = 'none';
 }
